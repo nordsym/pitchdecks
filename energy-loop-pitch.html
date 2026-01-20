@@ -133,18 +133,23 @@
             right: 0;
             bottom: 0;
             background-image:
-                radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.9), transparent),
-                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.95), transparent),
+                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.85), transparent),
+                radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.75), transparent),
                 radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.9), transparent),
-                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent),
                 radial-gradient(1.5px 1.5px at 160px 120px, rgba(255,255,255,1), transparent),
-                radial-gradient(1px 1px at 200px 50px, rgba(255,255,255,0.7), transparent),
-                radial-gradient(1px 1px at 220px 140px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 260px 90px, rgba(255,255,255,0.6), transparent),
-                radial-gradient(1.5px 1.5px at 300px 170px, rgba(255,255,255,0.9), transparent);
+                radial-gradient(1px 1px at 200px 50px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 220px 140px, rgba(255,255,255,0.85), transparent),
+                radial-gradient(1px 1px at 260px 90px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(2px 2px at 300px 170px, rgba(255,255,255,1), transparent),
+                radial-gradient(1px 1px at 80px 190px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 150px 10px, rgba(255,255,255,0.9), transparent),
+                radial-gradient(1.5px 1.5px at 250px 150px, rgba(255,255,255,0.95), transparent),
+                radial-gradient(1px 1px at 320px 60px, rgba(255,255,255,0.75), transparent),
+                radial-gradient(1px 1px at 180px 180px, rgba(255,255,255,0.85), transparent);
             background-size: 350px 200px;
-            animation: twinkle 8s ease-in-out infinite;
+            animation: starDrift 120s linear infinite;
         }
 
         .stars-2 {
@@ -154,52 +159,99 @@
             right: 0;
             bottom: 0;
             background-image:
-                radial-gradient(1px 1px at 70px 20px, rgba(56,189,248,0.8), transparent),
-                radial-gradient(1px 1px at 110px 100px, rgba(167,139,250,0.7), transparent),
-                radial-gradient(1.5px 1.5px at 180px 60px, rgba(255,255,255,0.9), transparent),
-                radial-gradient(1px 1px at 240px 130px, rgba(56,189,248,0.6), transparent),
-                radial-gradient(1px 1px at 280px 40px, rgba(255,255,255,0.7), transparent),
-                radial-gradient(2px 2px at 320px 110px, rgba(167,139,250,0.8), transparent);
+                radial-gradient(1px 1px at 70px 20px, rgba(56,189,248,0.9), transparent),
+                radial-gradient(1.5px 1.5px at 110px 100px, rgba(167,139,250,0.85), transparent),
+                radial-gradient(2px 2px at 180px 60px, rgba(255,255,255,1), transparent),
+                radial-gradient(1px 1px at 240px 130px, rgba(56,189,248,0.75), transparent),
+                radial-gradient(1px 1px at 280px 40px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(2px 2px at 320px 110px, rgba(167,139,250,0.9), transparent),
+                radial-gradient(1px 1px at 30px 90px, rgba(56,189,248,0.7), transparent),
+                radial-gradient(1.5px 1.5px at 350px 150px, rgba(255,255,255,0.95), transparent),
+                radial-gradient(1px 1px at 200px 20px, rgba(167,139,250,0.8), transparent),
+                radial-gradient(1px 1px at 140px 170px, rgba(56,189,248,0.85), transparent);
             background-size: 400px 180px;
-            animation: twinkle 12s ease-in-out infinite reverse;
+            animation: starDrift 90s linear infinite reverse;
+        }
+
+        .stars-3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(1px 1px at 45px 85px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 95px 125px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 175px 45px, rgba(255,255,255,0.55), transparent),
+                radial-gradient(1px 1px at 225px 165px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 285px 75px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 335px 135px, rgba(255,255,255,0.55), transparent),
+                radial-gradient(1px 1px at 15px 155px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 125px 15px, rgba(255,255,255,0.5), transparent);
+            background-size: 380px 190px;
+            animation: starDrift 200s linear infinite, twinkle 4s ease-in-out infinite;
         }
 
         .shooting-star {
             position: absolute;
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(56,189,248,0.8), transparent);
-            animation: shoot 4s ease-in-out infinite;
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(56,189,248,0), rgba(56,189,248,0.9) 30%, rgba(255,255,255,1) 50%, rgba(167,139,250,0.8) 70%, transparent);
+            border-radius: 100%;
+            filter: drop-shadow(0 0 6px rgba(56,189,248,0.8));
+            animation: shoot 6s ease-in-out infinite;
             opacity: 0;
         }
 
         .shooting-star:nth-child(3) {
-            top: 20%;
-            left: 10%;
+            top: 15%;
+            left: 5%;
             animation-delay: 0s;
+            width: 180px;
         }
 
         .shooting-star:nth-child(4) {
-            top: 40%;
-            left: 60%;
-            animation-delay: 2s;
+            top: 35%;
+            left: 55%;
+            animation-delay: 2.5s;
+            width: 120px;
         }
 
         .shooting-star:nth-child(5) {
-            top: 70%;
-            left: 30%;
-            animation-delay: 3.5s;
+            top: 65%;
+            left: 25%;
+            animation-delay: 4.5s;
+            width: 160px;
+        }
+
+        .shooting-star:nth-child(6) {
+            top: 25%;
+            left: 75%;
+            animation-delay: 7s;
+            width: 140px;
+        }
+
+        .shooting-star:nth-child(7) {
+            top: 80%;
+            left: 10%;
+            animation-delay: 9s;
+            width: 100px;
+        }
+
+        @keyframes starDrift {
+            from { transform: translateY(0) translateX(0); }
+            to { transform: translateY(-200px) translateX(-100px); }
         }
 
         @keyframes twinkle {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
+            50% { opacity: 0.5; }
         }
 
         @keyframes shoot {
-            0% { transform: translateX(0) translateY(0); opacity: 0; }
-            5% { opacity: 1; }
-            20% { transform: translateX(300px) translateY(100px); opacity: 0; }
+            0% { transform: translateX(0) translateY(0) rotate(35deg); opacity: 0; }
+            2% { opacity: 1; }
+            15% { transform: translateX(400px) translateY(200px) rotate(35deg); opacity: 0; }
             100% { opacity: 0; }
         }
 
@@ -491,10 +543,16 @@
             background: var(--theme-bg-tertiary);
             color: var(--theme-text-primary);
             cursor: pointer;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
+            line-height: 1;
+        }
+
+        .nav-btn svg {
+            display: block;
+            margin: auto;
         }
 
         .nav-btn:hover:not(:disabled) {
@@ -737,6 +795,9 @@
         <div class="starfield">
             <div class="stars"></div>
             <div class="stars-2"></div>
+            <div class="stars-3"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
             <div class="shooting-star"></div>
             <div class="shooting-star"></div>
             <div class="shooting-star"></div>
@@ -749,14 +810,13 @@
                 <h1 class="slide-title slide-title-hero animate-in delay-1">Energy Loop &<br>Impact Loop</h1>
                 <p class="slide-subtitle animate-in delay-2" style="text-align: center; margin-top: 1.5rem;">
                     En sammanhållen digital plattform.<br>
-                    Tre sajter. Två appar. Ett system.
+                    Tre sajter. En app. Ett system.
                 </p>
                 <div class="animate-in delay-4" style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                     <span class="tech-badge">Impact Loop EU</span>
                     <span class="tech-badge">Impact Loop SE</span>
                     <span class="tech-badge">Energy Loop</span>
-                    <span class="tech-badge">iOS-app</span>
-                    <span class="tech-badge">Android-app</span>
+                    <span class="tech-badge">Mobilapp (iOS + Android)</span>
                 </div>
             </div>
             <div class="logo-container">
@@ -871,7 +931,7 @@
 
                     <div class="card animate-in delay-4" style="padding: 2.5rem;">
                         <div class="card-accent"></div>
-                        <h3 style="font-family: 'Comfortaa', cursive; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--theme-text-primary);">7 leverabler</h3>
+                        <h3 style="font-family: 'Comfortaa', cursive; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--theme-text-primary);">6 leverabler</h3>
 
                         <div class="deliverable-item">
                             <div class="deliverable-icon">
@@ -905,17 +965,8 @@
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                             </div>
                             <div class="deliverable-content">
-                                <h4>iOS-app</h4>
-                                <p>App Store</p>
-                            </div>
-                        </div>
-                        <div class="deliverable-item">
-                            <div class="deliverable-icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                            </div>
-                            <div class="deliverable-content">
-                                <h4>Android-app</h4>
-                                <p>Google Play</p>
+                                <h4>Mobilapp</h4>
+                                <p>iOS + Android (App Store & Google Play)</p>
                             </div>
                         </div>
                         <div class="deliverable-item">
