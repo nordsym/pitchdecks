@@ -13,7 +13,7 @@ NordSym bygger en sammanhållen digital plattform:
 - **3 sajter** (Impact Loop EU, Impact Loop SE, Energy Loop)
 - **1 mobilapp** (iOS + Android - en kodbas, två plattformar)
 - **1 gemensam databas** med realtidssynk
-- **1 Admin + CRM** (statistik, medlemmar, AI-assisterad publicering för journalister)
+- **1 Admin + CSM** (statistik, medlemmar, AI-assisterad publicering för journalister)
 
 ## Dagens problem
 

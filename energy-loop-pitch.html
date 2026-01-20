@@ -843,27 +843,26 @@
         <!-- SLIDE 1: Öppning -->
         <section class="slide active" data-slide="1">
             <div class="flex-1 flex-col-center z-content">
-                <p class="slide-label animate-in">NordSym × Camilla Bergman</p>
+                <button id="copy-context-btn" class="animate-in" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: transparent; border: 1px solid var(--theme-border); border-radius: 2rem; color: var(--theme-text-muted); font-size: 0.75rem; cursor: pointer; transition: all 0.2s; margin-bottom: 1.5rem;" onclick="copyContext()">
+                    <svg style="width: 0.875rem; height: 0.875rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                    </svg>
+                    <span id="copy-btn-text">Kopiera README till AI</span>
+                </button>
                 <h1 class="slide-title slide-title-hero animate-in delay-1">Tekniskt förslag</h1>
                 <p class="slide-subtitle animate-in delay-2" style="text-align: center; margin-top: 1.5rem;">
-                    Arkitektur för Energy Loop & Impact Loop.<br>
-                    Tre sajter. En app. Gemensam grund.
+                    Tre sajter. En app. Gemensam grund.<br>
+                    <span style="font-size: 1rem; color: var(--theme-text-muted);">Slutprodukten byggs i er design - det här är bara ritningen.</span>
                 </p>
-                <div class="animate-in delay-4" style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <div class="animate-in delay-3" style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                     <span class="tech-badge">Impact Loop EU</span>
                     <span class="tech-badge">Impact Loop SE</span>
                     <span class="tech-badge">Energy Loop</span>
                     <span class="tech-badge">Mobilapp</span>
                 </div>
-                <p class="animate-in delay-5" style="margin-top: 2rem; font-size: 0.875rem; color: var(--theme-text-muted);">
+                <p class="animate-in delay-4" style="margin-top: 2rem; font-size: 0.75rem; color: var(--theme-text-muted);">
                     Skapad 2025-01-20 · Version 1.0
                 </p>
-                <button id="copy-context-btn" class="animate-in delay-6" style="margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: var(--theme-bg-secondary); border: 1px solid var(--theme-border); border-radius: 0.5rem; color: var(--theme-text-secondary); font-size: 0.875rem; cursor: pointer; transition: all 0.2s;" onclick="copyContext()">
-                    <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
-                    </svg>
-                    <span id="copy-btn-text">Kopiera AI-sammanfattning</span>
-                </button>
             </div>
             <div class="logo-container">
                 <img src="https://raw.githubusercontent.com/GusHem/Logga-utan-text/refs/heads/main/Final%20logo%20no%20text.svg" alt="NordSym">
@@ -962,7 +961,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                     </svg>
                                     <div class="solution-text">
-                                        <h4>Admin + CRM</h4>
+                                        <h4>Admin + CSM</h4>
                                         <p>Statistik, medlemmar och AI-assisterad publicering för journalister.</p>
                                     </div>
                                 </div>
@@ -1024,7 +1023,7 @@
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
                             </div>
                             <div class="deliverable-content">
-                                <h4>Admin + CRM</h4>
+                                <h4>Admin + CSM</h4>
                                 <p>Statistik, medlemmar, AI-publicering</p>
                             </div>
                         </div>
@@ -1140,7 +1139,7 @@
                                 </li>
                                 <li style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; color: var(--theme-text-secondary);">
                                     <svg style="width: 1rem; height: 1rem; color: var(--theme-accent); flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    Admin + CRM v1
+                                    Admin + CSM v1
                                 </li>
                             </ul>
                             <span class="phase-price">100-150k SEK</span>
@@ -1687,7 +1686,7 @@ NordSym bygger en sammanhållen digital plattform:
 - **3 sajter** (Impact Loop EU, Impact Loop SE, Energy Loop)
 - **1 mobilapp** (iOS + Android - en kodbas, två plattformar)
 - **1 gemensam databas** med realtidssynk
-- **1 Admin + CRM** (statistik, medlemmar, AI-assisterad publicering för journalister)
+- **1 Admin + CSM** (statistik, medlemmar, AI-assisterad publicering för journalister)
 
 ## Dagens problem
 
