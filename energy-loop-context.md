@@ -31,13 +31,56 @@ NordSym bygger en sammanhållen digital plattform:
 | 3. Mobilapp | iOS + Android app | 120-180k |
 | **Totalt** | | **300-450k** |
 
-**Löpande kostnad:** 15k SEK/månad (hosting, säkerhet, support, App Store-underhåll)
+## Timeline
+
+| Fas | Längd | Första resultat |
+|-----|-------|-----------------|
+| 1. Grund | 6-8 veckor | Demo inom 1 vecka |
+| 2. Expansion | 4-6 veckor | Beta inom 2 veckor |
+| 3. Mobilapp | 8-10 veckor | TestFlight inom 2 veckor |
+
+**Total tid:** 4.5-6 månader (beroende på feedback-cykler)
+
+## Löpande kostnad - 15k SEK/månad
+
+**Ingår:**
+- Hosting & infrastruktur (databas, sajter, app-backend)
+- App Store-avgifter (Apple + Google)
+- Säkerhetsuppdateringar & bugfixar
+- Mindre justeringar & iterationer
+- Support (email/WhatsApp)
+- Backup & monitoring
+
+**Större projekt** (nya features, redesign) offereras separat.
+
+**Uppsägningstid:** 3 månader (ni äger all kod oavsett)
 
 ## Teknik
 
 - **Next.js** - Moderna, snabba sajter
 - **Realtidsdatabas** - Synk mellan alla plattformar
 - **React Native** - En kodbas för iOS och Android
+
+## Team & Approach
+
+NordSym arbetar med:
+- Kärnteam + specialister vid behov
+- AI-first workflow (Claude/Gemini för snabbare leverans)
+- Erfarna konsulter redan uppladdade i våra system (noll onboarding)
+
+Flexibelt team = konkurrenskraftig prissättning utan kvalitetskompromiss.
+
+## Portfolio
+
+**FlowVault** (https://flowvault.se)
+- Claude Skills marketplace med Stripe-integration
+- 6 aktiva användare, varav 1 betalande PRO-kund
+
+**GenPRD** (https://genprd.se)
+- AI-assisterad produktdokumentation
+- 5+ aktiva användare
+
+**Fler projekt:** https://nordsym.com
 
 ## Varför NordSym
 
