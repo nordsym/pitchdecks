@@ -6,9 +6,9 @@
 
 ---
 
-## Vad vi föreslår
+## Förslag
 
-NordSym bygger en sammanhållen digital plattform:
+En sammanhållen digital plattform:
 
 - **3 sajter** (Impact Loop EU, Impact Loop SE, Energy Loop)
 - **1 mobilapp** (iOS + Android - en kodbas, två plattformar)
@@ -33,7 +33,7 @@ NordSym bygger en sammanhållen digital plattform:
 
 ## Timeline
 
-| Fas | Längd | Första resultat |
+| Fas | Längd | Första leverans |
 |-----|-------|-----------------|
 | 1. Grund | 6-8 veckor | Demo inom 1 vecka |
 | 2. Expansion | 4-6 veckor | Beta inom 2 veckor |
@@ -61,14 +61,13 @@ NordSym bygger en sammanhållen digital plattform:
 - **Realtidsdatabas** - Synk mellan alla plattformar
 - **React Native** - En kodbas för iOS och Android
 
-## Team & Approach
+## Approach
 
-NordSym arbetar med:
 - Kärnteam + specialister vid behov
 - AI-first workflow (Claude/Gemini för snabbare leverans)
-- Erfarna konsulter redan uppladdade i våra system (noll onboarding)
+- Erfarna konsulter redo att hoppa in (noll onboarding)
 
-Flexibelt team = konkurrenskraftig prissättning utan kvalitetskompromiss.
+Flexibelt = konkurrenskraftig prissättning utan kvalitetskompromiss.
 
 ## Portfolio
 
@@ -84,30 +83,30 @@ Flexibelt team = konkurrenskraftig prissättning utan kvalitetskompromiss.
 
 ## Varför NordSym
 
-- **AI-First Studio** - Vi använder AI i hela arbetsflödet för snabbare leverans
+- **AI-First Studio** - AI i hela arbetsflödet för snabbare leverans
 - **Full-stack partner** - Design, kod och drift under ett tak
 - **Kollaborativ arkitektur** - Systemet byggs så ert team kan växa in i det
-- **Återuppliva död kod** - Vi kan ta över och utvärdera befintliga projekt
-- **Skalbart team** - Vi kan enkelt ta in fler specialister vid behov
+- **Återuppliva död kod** - Jag tar över och utvärderar befintliga projekt
+- **Skalbart** - Enkelt att ta in fler specialister vid behov
 - **100% kodägarskap** - Ni äger all kod
 
 ## Vanliga funderingar
 
-**"Hur vet vi att det blir klart den här gången?"**
-Vi jobbar i korta cykler med löpande demo. Ni ser resultat inom första veckan, inte efter månader.
+**"Hur vet jag att det blir klart den här gången?"**
+Korta cykler med löpande demo. Ni ser leverans inom första veckan, inte efter månader.
 
-**"Vad händer om ni försvinner?"**
+**"Vad händer om du försvinner?"**
 All kod ägs av er och ligger i ert eget repo. Dokumentation ingår. Ingen vendor lock-in.
 
 **"Är 300-450k rimligt?"**
-Spridningen beror på hur mycket som kan återanvändas från befintliga projekt. Vi analyserar gratis innan vi ger fast pris.
+Spridningen beror på hur mycket som kan återanvändas från befintliga projekt. Gratis analys innan fast pris.
 
 **"Varför en app istället för två?"**
 En kodbas (React Native) som kompileras till både iOS och Android. Samma funktionalitet, halva underhållet.
 
 ## Nästa steg
 
-1. Uppföljningsmöte (30 min) - vi lyssnar mer än vi pratar
+1. Uppföljningsmöte (30 min)
 2. Tillgång till befintlig kod för analys
 3. Detaljerad offert för Fas 1
 4. Projektstart
