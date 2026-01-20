@@ -1314,13 +1314,8 @@
             </svg>
         </button>
         <button class="nav-btn nav-theme-btn" id="theme-btn" title="Byt tema">
-            <svg id="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-            </svg>
-            <svg id="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
-            </svg>
+            <span id="theme-icon-light" style="font-size: 16px; line-height: 1;">☀</span>
+            <span id="theme-icon-dark" style="font-size: 16px; line-height: 1; display: none;">☾</span>
         </button>
     </div>
 
@@ -1333,9 +1328,9 @@
                 this.stars = [];
                 this.meteors = [];
                 this.config = {
-                    starCount: window.innerWidth < 768 ? 150 : 400,
-                    meteorChance: 0.008,
-                    maxMeteors: 5,
+                    starCount: window.innerWidth < 768 ? 100 : 250,
+                    meteorChance: 0.003,
+                    maxMeteors: 2,
                     colors: {
                         star: '255, 255, 255',
                         meteorHead: '#00BFFF',
@@ -1378,12 +1373,13 @@
             }
 
             createMeteor() {
-                const angle = (Math.PI / 4) + (Math.random() - 0.5) * 0.3;
-                const speed = Math.random() * 8 + 12;
+                // Diagonal: top-right to bottom-left (3π/4 = 135°)
+                const angle = (Math.PI * 3 / 4) + (Math.random() - 0.5) * 0.2;
+                const speed = Math.random() * 6 + 8;
                 return {
-                    x: Math.random() * this.width * 0.8,
+                    x: this.width * 0.3 + Math.random() * this.width * 0.7,
                     y: -20,
-                    length: Math.random() * 80 + 100,
+                    length: Math.random() * 60 + 80,
                     speed: speed,
                     vx: Math.cos(angle) * speed,
                     vy: Math.sin(angle) * speed,
@@ -1438,8 +1434,8 @@
                     this.ctx.fill();
                     this.ctx.shadowBlur = 0;
 
-                    // Behåll om fortfarande på skärmen
-                    return meteor.x < this.width + 100 && meteor.y < this.height + 100;
+                    // Behåll om fortfarande på skärmen (går vänster nu)
+                    return meteor.x > -100 && meteor.y < this.height + 100;
                 });
             }
 
