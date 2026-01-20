@@ -710,6 +710,12 @@
             box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
         }
 
+        #copy-context-btn:hover {
+            border-color: var(--theme-accent) !important;
+            color: var(--theme-accent) !important;
+            transform: translateY(-1px);
+        }
+
         /* Problem items */
         .problem-item {
             display: flex;
@@ -850,8 +856,14 @@
                     <span class="tech-badge">Mobilapp</span>
                 </div>
                 <p class="animate-in delay-5" style="margin-top: 2rem; font-size: 0.875rem; color: var(--theme-text-muted);">
-                    2025-01-20 · Version 1.0
+                    Skapad 2025-01-20 · Version 1.0
                 </p>
+                <button id="copy-context-btn" class="animate-in delay-6" style="margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: var(--theme-bg-secondary); border: 1px solid var(--theme-border); border-radius: 0.5rem; color: var(--theme-text-secondary); font-size: 0.875rem; cursor: pointer; transition: all 0.2s;" onclick="copyContext()">
+                    <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                    </svg>
+                    <span id="copy-btn-text">Kopiera AI-sammanfattning</span>
+                </button>
             </div>
             <div class="logo-container">
                 <img src="https://raw.githubusercontent.com/GusHem/Logga-utan-text/refs/heads/main/Final%20logo%20no%20text.svg" alt="NordSym">
@@ -1656,6 +1668,104 @@
                 this.updateAndDrawMeteors();
                 requestAnimationFrame(() => this.animate());
             }
+        }
+
+        // Copy Context function
+        function copyContext() {
+            const contextText = `# Energy Loop & Impact Loop - Förslag från NordSym
+
+**Från:** Gustav Hemmingsson, NordSym AB
+**Till:** Camilla Bergman
+**Datum:** 2025-01-20
+
+---
+
+## Vad vi föreslår
+
+NordSym bygger en sammanhållen digital plattform:
+
+- **3 sajter** (Impact Loop EU, Impact Loop SE, Energy Loop)
+- **1 mobilapp** (iOS + Android - en kodbas, två plattformar)
+- **1 gemensam databas** med realtidssynk
+- **1 Admin + CRM** (statistik, medlemmar, AI-assisterad publicering för journalister)
+
+## Dagens problem
+
+- Tre isolerade sajter utan gemensam data
+- Ingen mobilapp (medlemmar förväntar sig en riktig app)
+- Tidigare kodprojekt som betalats för men aldrig fungerat
+- Ingen samlad bild över medlemmar och aktivitet
+
+## Faser & Investering
+
+| Fas | Innehåll | Pris (SEK) |
+|-----|----------|------------|
+| 1. Grund | Gemensam databas + Impact Loop EU | 100-150k |
+| 2. Expansion | Impact Loop SE + Energy Loop | 80-120k |
+| 3. Mobilapp | iOS + Android app | 120-180k |
+| **Totalt** | | **300-450k** |
+
+**Löpande kostnad:** 15k SEK/månad (hosting, säkerhet, support, App Store-underhåll)
+
+## Teknik
+
+- **Next.js** - Moderna, snabba sajter
+- **Realtidsdatabas** - Synk mellan alla plattformar
+- **React Native** - En kodbas för iOS och Android
+
+## Varför NordSym
+
+- **AI-First Studio** - Vi använder AI i hela arbetsflödet för snabbare leverans
+- **Full-stack partner** - Design, kod och drift under ett tak
+- **Kollaborativ arkitektur** - Systemet byggs så ert team kan växa in i det
+- **Återuppliva död kod** - Vi kan ta över och utvärdera befintliga projekt
+- **Skalbart team** - Vi kan enkelt ta in fler specialister vid behov
+- **100% kodägarskap** - Ni äger all kod
+
+## Vanliga funderingar
+
+**"Hur vet vi att det blir klart den här gången?"**
+Vi jobbar i korta cykler med löpande demo. Ni ser resultat inom första veckan, inte efter månader.
+
+**"Vad händer om ni försvinner?"**
+All kod ägs av er och ligger i ert eget repo. Dokumentation ingår. Ingen vendor lock-in.
+
+**"Är 300-450k rimligt?"**
+Spridningen beror på hur mycket som kan återanvändas från befintliga projekt. Vi analyserar gratis innan vi ger fast pris.
+
+**"Varför en app istället för två?"**
+En kodbas (React Native) som kompileras till både iOS och Android. Samma funktionalitet, halva underhållet.
+
+## Nästa steg
+
+1. Uppföljningsmöte (30 min) - vi lyssnar mer än vi pratar
+2. Tillgång till befintlig kod för analys
+3. Detaljerad offert för Fas 1
+4. Projektstart
+
+---
+
+**Kontakt:**
+Gustav Hemmingsson
+gustav@nordsym.com
+https://nordsym.com
+
+**Pitch deck:**
+https://nordsym.github.io/pitchdecks/energy-loop-pitch.html
+`;
+
+            navigator.clipboard.writeText(contextText).then(() => {
+                const btn = document.getElementById('copy-context-btn');
+                const btnText = document.getElementById('copy-btn-text');
+                btnText.textContent = 'Kopierat!';
+                btn.style.borderColor = 'var(--theme-accent)';
+                btn.style.color = 'var(--theme-accent)';
+                setTimeout(() => {
+                    btnText.textContent = 'Kopiera AI-sammanfattning';
+                    btn.style.borderColor = 'var(--theme-border)';
+                    btn.style.color = 'var(--theme-text-secondary)';
+                }, 2000);
+            });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
