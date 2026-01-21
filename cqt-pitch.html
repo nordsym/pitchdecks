@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CQT Fund | Investor Deck</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-dark: #0a0a0a;
+            --text: #0a0a0a;
+            --text-light: #ffffff;
+            --text-muted: #6b7280;
+            --accent: #2dd4bf;
+            --border: #e5e7eb;
+            --border-dark: #1f1f1f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            padding: 4rem 6rem 5rem;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-height: 800px) {
+            .slide { padding: 3rem 4rem 5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .slide { padding: 2rem 2rem 5rem; }
+        }
+
+        /* Dark slides */
+        .slide-dark {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        /* Split slides */
+        .slide-split {
+            flex-direction: row;
+            padding: 0;
+        }
+
+        .split-left, .split-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+        }
+
+        .split-left {
+            background: var(--bg);
+        }
+
+        .split-right {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        /* Typography */
+        .title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .title-large {
+            font-size: 5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        .slide-dark .subtitle {
+            color: #9ca3af;
+        }
+
+        .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .slide-dark .label {
+            color: #6b7280;
+        }
+
+        /* Logo */
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .logo-box {
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.75rem 1rem;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .slide-dark .logo-box {
+            background: var(--text-light);
+            color: var(--bg-dark);
+        }
+
+        .logo-text {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* Geometric shapes */
+        .geo-shape {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .geo-triangle {
+            width: 300px;
+            height: 300px;
+            border: 2px solid currentColor;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            background: transparent;
+        }
+
+        .geo-cube {
+            width: 200px;
+            height: 200px;
+            border: 2px solid currentColor;
+            transform: rotate(45deg);
+        }
+
+        /* Stats */
+        .stats-row {
+            display: flex;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: right;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card-grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card-grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (max-width: 1024px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .card-grid, .card-grid-2, .card-grid-4 { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .slide-dark .card {
+            border-color: var(--border-dark);
+        }
+
+        .card-dark {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .card-number {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .slide-dark .card-number {
+            background: var(--text-light);
+            color: var(--bg-dark);
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .slide-dark .card-text {
+            color: #9ca3af;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .slide-dark .badge {
+            background: var(--text-light);
+            color: var(--bg-dark);
+        }
+
+        /* Metrics row */
+        .metrics-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--border);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .team-role {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 1.25rem;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #6b7280 0, #6b7280 8px, transparent 8px, transparent 16px);
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-dot {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: #374151;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .timeline-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        /* CTA Buttons */
+        .cta-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.2s;
+        }
+
+        .cta-primary {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .cta-primary:hover {
+            background: #1f1f1f;
+        }
+
+        .slide-dark .cta-primary {
+            background: var(--text-light);
+            color: var(--bg-dark);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid var(--bg-dark);
+            color: var(--bg-dark);
+        }
+
+        .slide-dark .cta-secondary {
+            border-color: var(--text-light);
+            color: var(--text-light);
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 0.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.95);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            z-index: 100;
+            font-size: 0.7rem;
+            opacity: 0.85;
+        }
+
+        .nav-controls:hover {
+            opacity: 1;
+        }
+
+        .nav-btn {
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            border: none;
+            background: var(--border);
+            color: var(--text);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nav-counter {
+            font-weight: 500;
+            color: var(--text-muted);
+            min-width: 3rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+        /* Footer */
+        .slide-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .slide-dark .slide-footer {
+            color: #6b7280;
+        }
+
+        /* Centered content */
+        .center-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-center { text-align: center; }
+
+        /* Structure diagram */
+        .structure-box {
+            padding: 1rem 2rem;
+            border: 2px dashed var(--border);
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .structure-solid {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .structure-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+
+        <!-- SLIDE 1: Title -->
+        <section class="slide slide-dark active" data-slide="1">
+            <div class="center-content">
+                <p class="label animate-in">CQT Investment Group</p>
+                <div class="logo animate-in delay-1">
+                    <div class="logo-box">CQT</div>
+                </div>
+                <h1 class="title title-large animate-in delay-2">FUND</h1>
+                <p class="slide-footer animate-in delay-3">www.cqtinvest.com</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Purpose -->
+        <section class="slide slide-split" data-slide="2">
+            <div class="split-left">
+                <div style="width: 200px; height: 200px; border: 2px solid #ccc; position: relative;">
+                    <div style="position: absolute; top: 20%; left: 20%; width: 60%; height: 60%; border: 2px solid #ccc;"></div>
+                </div>
+            </div>
+            <div class="split-right">
+                <div>
+                    <h2 class="title animate-in">OUR PURPOSE</h2>
+                    <p class="subtitle animate-in delay-1" style="color: #9ca3af;">
+                        Sweden built AP7, one of the most trusted pension funds globally.
+                    </p>
+                    <p class="subtitle animate-in delay-2" style="color: #9ca3af; margin-top: 1.5rem;">
+                        CQT brings the proven Swedish investment methodology to international investors through CQT Fund.
+                    </p>
+                    <p class="subtitle animate-in delay-3" style="color: #fff; margin-top: 1.5rem; font-weight: 500;">
+                        Simple, systematic, high-performance investing in global megatrends.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Performance -->
+        <section class="slide" data-slide="3">
+            <div class="center-content">
+                <h2 class="title animate-in">THE PERFORMANCE</h2>
+                <p class="subtitle animate-in delay-1">Not theory – proven in practice</p>
+
+                <div style="display: flex; gap: 4rem; margin-top: 3rem; align-items: flex-end;">
+                    <div style="flex: 2; height: 300px; background: linear-gradient(to top right, var(--bg-dark) 0%, var(--accent) 100%); position: relative;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--bg-dark);"></div>
+                        <p style="position: absolute; bottom: -2rem; left: 0; font-size: 0.75rem; color: var(--text-muted);">2002</p>
+                        <p style="position: absolute; bottom: -2rem; right: 0; font-size: 0.75rem; color: var(--text-muted);">2024</p>
+                    </div>
+                    <div class="stats-row animate-in delay-2" style="flex-direction: column; gap: 2rem;">
+                        <div class="stat">
+                            <p class="stat-label">5Y</p>
+                            <p class="stat-value">100.1%</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">10Y</p>
+                            <p class="stat-value">198.4%</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">From Start</p>
+                            <p class="stat-value">616.7%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Philosophy -->
+        <section class="slide" data-slide="4">
+            <div class="center-content">
+                <h2 class="title animate-in">...a clear investment philosophy</h2>
+
+                <div class="card-grid animate-in delay-1" style="margin-top: 3rem;">
+                    <div class="card" style="text-align: center;">
+                        <div class="card-number" style="margin: 0 auto 1rem;">1</div>
+                        <h3 class="card-title">Risk</h3>
+                        <p class="card-text">High returns require risk-taking. At the same time, we control the risk.</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="card-number" style="margin: 0 auto 1rem;">2</div>
+                        <h3 class="card-title">Time</h3>
+                        <p class="card-text">Embracing the forces shaping tomorrow.</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="card-number" style="margin: 0 auto 1rem;">3</div>
+                        <h3 class="card-title">Responsibility</h3>
+                        <p class="card-text">We don't make money off our savers. We make money for them.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: Problem -->
+        <section class="slide" data-slide="5">
+            <div class="center-content">
+                <h2 class="title animate-in">THE PROBLEM</h2>
+                <p class="subtitle animate-in delay-1" style="color: var(--accent);">+80% of active funds underperform</p>
+
+                <div class="card-grid animate-in delay-2" style="margin-top: 3rem;">
+                    <div style="text-align: center;">
+                        <div class="badge">Problem 1</div>
+                        <p style="margin-top: 1rem; color: var(--text-muted);">Complexity vs. Simplicity</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="badge">Problem 2</div>
+                        <p style="margin-top: 1rem; color: var(--text-muted);">Outdated fee structures</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="badge">Problem 3</div>
+                        <p style="margin-top: 1rem; color: var(--text-muted);">Underperformance despite high fees</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Solution -->
+        <section class="slide slide-split" data-slide="6">
+            <div class="split-left" style="background: var(--bg-dark);">
+                <div style="width: 200px; height: 200px; border: 2px solid #444; transform: rotate(45deg);"></div>
+            </div>
+            <div class="split-right" style="background: var(--bg); color: var(--text);">
+                <div>
+                    <h2 class="title animate-in">THE SOLUTION</h2>
+                    <p class="subtitle animate-in delay-1" style="text-decoration: underline; margin-bottom: 2rem;">A proven, systematic model - now accessible globally</p>
+
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;" class="animate-in delay-2">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div class="card-number">1</div>
+                            <div>
+                                <p style="font-weight: 600;">Swedish inspired model +</p>
+                                <p style="color: var(--text-muted);">Absolute return focus</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div class="card-number">2</div>
+                            <div>
+                                <p style="font-weight: 600;">Global indices +</p>
+                                <p style="color: var(--text-muted);">Selective leverage</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div class="card-number">3</div>
+                            <div>
+                                <p style="font-weight: 600;">Risk-managed +</p>
+                                <p style="color: var(--text-muted);">Systematic</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Value Proposition -->
+        <section class="slide" data-slide="7">
+            <div class="center-content text-center">
+                <h2 class="title animate-in">VALUE PROPOSITION</h2>
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 4rem; margin-top: 4rem;" class="animate-in delay-1">
+                    <div class="badge">OUTPERFORM</div>
+                    <div style="width: 150px; height: 150px; border: 2px solid var(--border); transform: rotate(45deg);"></div>
+                    <div class="badge">SIMPLICITY</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: Market -->
+        <section class="slide" data-slide="8">
+            <div class="center-content">
+                <h2 class="title animate-in" style="text-align: right;">THE MARKET</h2>
+
+                <div class="card-grid card-grid-2 animate-in delay-1" style="margin-top: 2rem;">
+                    <div>
+                        <div class="badge" style="margin-bottom: 1rem;">Advantage 1</div>
+                        <p class="card-text">Investors demand future-proof portfolios</p>
+                    </div>
+                    <div>
+                        <div class="badge" style="margin-bottom: 1rem;">Advantage 2</div>
+                        <p class="card-text">Structural megatrends reshaping the world</p>
+                    </div>
+                    <div>
+                        <div class="badge" style="margin-bottom: 1rem;">Advantage 3</div>
+                        <p class="card-text">Structural, not cyclical opportunities</p>
+                    </div>
+                    <div>
+                        <div class="badge" style="margin-bottom: 1rem;">Advantage 4</div>
+                        <p class="card-text">Thematic & index investing is a $3 trillion+ global market</p>
+                    </div>
+                </div>
+
+                <div class="animate-in delay-2" style="margin-top: 3rem; padding: 2rem; border-left: 3px solid var(--bg-dark);">
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Pension funds, family offices, and UHNWIs are reallocating into megatrend-driven models.<br>
+                        Investors demanding Swedish-grade strategies in MENA & beyond.<br>
+                        Demand from global investors for stable, systematic, AP7-style strategies.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: Objective -->
+        <section class="slide slide-split" data-slide="9">
+            <div class="split-left" style="background: var(--bg-dark);">
+                <div style="width: 150px; height: 150px; border: 2px solid #444;"></div>
+            </div>
+            <div class="split-right" style="background: var(--bg); color: var(--text);">
+                <div>
+                    <h2 class="title animate-in">OBJECTIVE</h2>
+                    <p class="subtitle animate-in delay-1" style="font-size: 1.5rem; line-height: 1.6; color: var(--text);">
+                        By proven models, simplicity and market-driven models build a <strong>$1B fund structure</strong> that outperforms everything else on the market.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: Key Metrics -->
+        <section class="slide slide-dark" data-slide="10">
+            <div class="center-content">
+                <div style="display: flex;">
+                    <div style="flex: 1; padding-right: 4rem;">
+                        <h2 class="title animate-in" style="font-size: 2.5rem;">Model-Driven Allocation</h2>
+                    </div>
+                    <div style="flex: 1; padding-left: 4rem; border-left: 1px solid var(--border-dark);">
+                        <h2 class="title animate-in delay-1" style="font-size: 2.5rem;">Meets Tactical Execution</h2>
+                    </div>
+                </div>
+
+                <div class="metrics-row animate-in delay-2">
+                    <div class="metric">
+                        <p class="metric-label">Target</p>
+                        <p class="metric-value">+20% APY</p>
+                    </div>
+                    <div class="metric">
+                        <p class="metric-label">Risk</p>
+                        <p class="metric-value">ESMA Risk 5</p>
+                    </div>
+                    <div class="metric">
+                        <p class="metric-label">Fees</p>
+                        <p class="metric-value">Performance only</p>
+                    </div>
+                    <div class="metric">
+                        <p class="metric-label">Minimum</p>
+                        <p class="metric-value">$250,000 USD</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: Structure -->
+        <section class="slide" data-slide="11">
+            <div class="center-content">
+                <h2 class="title animate-in" style="writing-mode: vertical-rl; position: absolute; left: 2rem; top: 50%; transform: translateY(-50%);">THE STRUCTURE</h2>
+
+                <div style="max-width: 800px; margin: 0 auto;" class="animate-in delay-1">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+                        <div>
+                            <p class="label">General Partners (GP's)</p>
+                            <div class="badge" style="margin-top: 1rem;">CQT Investment Group</div>
+                        </div>
+                        <div>
+                            <p class="label">Limited Partners (LP's)</p>
+                            <div class="structure-row" style="margin-top: 1rem;">
+                                <div class="structure-box">Individual</div>
+                                <div class="structure-box">Family Office</div>
+                                <div class="structure-box">Institutional</div>
+                            </div>
+                            <div class="structure-row">
+                                <div class="structure-box">Fund</div>
+                                <div class="structure-box">Corporation</div>
+                                <div class="structure-box">Private Equity</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="structure-solid" style="text-align: center; margin: 2rem 0;">
+                        CQT [ THE FUND ]
+                    </div>
+
+                    <div class="structure-row">
+                        <div class="structure-box">Index</div>
+                        <div class="structure-box">Leverage</div>
+                        <div class="structure-box">Systematic</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: Timeline -->
+        <section class="slide" data-slide="12">
+            <div class="center-content">
+                <h2 class="title animate-in">THE TIMELINE</h2>
+
+                <div style="display: flex; gap: 4rem; margin-top: 2rem;">
+                    <div class="animate-in delay-1" style="flex: 1;">
+                        <p style="margin-bottom: 1rem;"><strong>Now:</strong> Raising USD 100M.</p>
+                        <p style="margin-bottom: 1rem; color: var(--text-muted);"><strong>Year 1–2:</strong> Deploy AUM, build track record under DIFC structure.</p>
+                        <p style="color: var(--text-muted);"><strong>Year 3–5:</strong> Marketing and expansion to institutional & family office investors.</p>
+                    </div>
+                    <div class="animate-in delay-2" style="flex: 1;">
+                        <div style="display: flex; flex-direction: column; gap: 2rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div class="card-number">1</div>
+                                <div>
+                                    <p class="label" style="margin: 0;">Step 1</p>
+                                    <p style="font-weight: 600;">Finalize early investor pool</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div class="card-number">2</div>
+                                <div>
+                                    <p class="label" style="margin: 0;">Step 2</p>
+                                    <p style="font-weight: 600;">Launch and distribution</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div class="card-number">3</div>
+                                <div>
+                                    <p class="label" style="margin: 0;">Step 3</p>
+                                    <p style="font-weight: 600;">Traction and scale</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: The Offer -->
+        <section class="slide" data-slide="13">
+            <div class="center-content">
+                <h2 class="title animate-in">THE OFFER</h2>
+                <p class="subtitle animate-in delay-1" style="font-weight: 600; color: var(--text);">Exclusive Early Investor Advantage</p>
+
+                <div style="display: flex; gap: 4rem; margin-top: 3rem;">
+                    <div class="animate-in delay-2" style="flex: 1;">
+                        <p style="margin-bottom: 1rem;">Raising <strong>$100M USD</strong></p>
+                        <p style="margin-bottom: 1rem; color: var(--text-muted);">All funds allocated as AUM.</p>
+                        <p style="margin-bottom: 1rem; color: var(--text-muted);">Early investors receive 25% equity stake in the fund structure.</p>
+                        <p>Sign PACTs of 10M USD, min >250k USD</p>
+                    </div>
+                    <div class="animate-in delay-3" style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="badge" style="padding: 1.5rem 2rem;">PACTs of 10M USD</div>
+                        <div class="badge" style="padding: 1.5rem 2rem;">25% equity stake</div>
+                        <div class="badge" style="padding: 1.5rem 2rem;">Swedish pension-fund-inspired model</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: Team -->
+        <section class="slide" data-slide="14">
+            <div class="center-content">
+                <h2 class="title animate-in text-center">THE TEAM</h2>
+
+                <div class="team-grid animate-in delay-1">
+                    <div class="team-member">
+                        <div class="team-photo">CE</div>
+                        <p class="team-name">Charlie Ejerholm</p>
+                        <p class="team-role">Assets Manager</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">MA</div>
+                        <p class="team-name">Mohamad Alubeid</p>
+                        <p class="team-role">Investment Manager</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">MH</div>
+                        <p class="team-name">Maxime Holm</p>
+                        <p class="team-role">Investor Relations</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">DC</div>
+                        <p class="team-name">Danish Chotani</p>
+                        <p class="team-role">Advisory Board</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: Roadmap -->
+        <section class="slide slide-dark" data-slide="15">
+            <div class="center-content">
+                <h2 class="title animate-in text-center">FUTURE ROADMAP</h2>
+
+                <div class="timeline animate-in delay-1">
+                    <div class="timeline-item">
+                        <div class="timeline-dot">1</div>
+                        <p class="timeline-label">PACTs</p>
+                        <p class="timeline-date">Q1 2026</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">2</div>
+                        <p class="timeline-label">SUB-FUND</p>
+                        <p class="timeline-date">Q2 2026</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">3</div>
+                        <p class="timeline-label">100M</p>
+                        <p class="timeline-date">Q4 2026</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">4</div>
+                        <p class="timeline-label">SCALE</p>
+                        <p class="timeline-date">Q2 2027</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: CTA -->
+        <section class="slide slide-split" data-slide="16">
+            <div class="split-left">
+                <div>
+                    <h2 class="title animate-in" style="font-size: 5rem;">QUESTIONS?</h2>
+                    <p class="animate-in delay-1" style="text-decoration: underline; margin-top: 2rem; font-size: 1.25rem;">
+                        Schedule a confidential investor briefing with our partners
+                    </p>
+
+                    <div class="cta-row animate-in delay-2">
+                        <a href="#" class="cta-button cta-primary">Book a Meeting</a>
+                        <a href="#" class="cta-button cta-secondary">Sign PACT Agreement</a>
+                    </div>
+
+                    <p class="slide-footer animate-in delay-3">www.cqtinvest.com</p>
+                </div>
+            </div>
+            <div class="split-right">
+                <div style="width: 200px; height: 200px; border: 2px solid #444; transform: rotate(15deg);"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prev-btn" disabled>
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <span class="nav-counter"><span id="current-slide">1</span> / <span id="total-slides">16</span></span>
+        <button class="nav-btn" id="next-btn">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            let currentSlide = 1;
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const currentSlideEl = document.getElementById('current-slide');
+            const totalSlidesEl = document.getElementById('total-slides');
+
+            totalSlidesEl.textContent = totalSlides;
+
+            function updateSlide() {
+                slides.forEach((slide, index) => {
+                    slide.classList.remove('active');
+                    if (index + 1 === currentSlide) {
+                        slide.classList.add('active');
+                        slide.querySelectorAll('.animate-in').forEach(el => {
+                            el.style.animation = 'none';
+                            el.offsetHeight;
+                            el.style.animation = null;
+                        });
+                    }
+                });
+
+                currentSlideEl.textContent = currentSlide;
+                prevBtn.disabled = currentSlide === 1;
+                nextBtn.disabled = currentSlide === totalSlides;
+            }
+
+            function goToSlide(n) {
+                currentSlide = Math.max(1, Math.min(n, totalSlides));
+                updateSlide();
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 1) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    e.preventDefault();
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    prevSlide();
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    goToSlide(1);
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    goToSlide(totalSlides);
+                } else if (e.key >= '1' && e.key <= '9') {
+                    e.preventDefault();
+                    goToSlide(parseInt(e.key));
+                }
+            });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            document.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            document.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) nextSlide();
+                    else prevSlide();
+                }
+            });
+
+            updateSlide();
+        });
+    </script>
+</body>
+</html>
