@@ -83,11 +83,7 @@
         .slide-container {
             width: 100vw;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
-            overflow: hidden;
         }
 
         /* Blueprint Grid - Light Mode */
@@ -122,11 +118,13 @@
         }
 
         .slide {
-            width: 100%;
-            max-width: 1920px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             display: none;
-            position: relative;
-            padding: 4rem 6rem 15rem;
+            padding: 4rem 6rem 5rem;
             z-index: 1;
             overflow-y: auto;
         }
@@ -138,13 +136,13 @@
 
         @media (max-height: 800px) {
             .slide {
-                padding: 3rem 4rem 15rem;
+                padding: 3rem 4rem 5rem;
             }
         }
 
         @media (max-height: 600px) {
             .slide {
-                padding: 2rem 2rem 15rem;
+                padding: 2rem 2rem 5rem;
             }
         }
 
