@@ -107,6 +107,16 @@
             font-size: 5rem;
         }
 
+        .title-hero {
+            font-size: 12rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .title-hero { font-size: 6rem; }
+        }
+
         .subtitle {
             font-size: 1.25rem;
             font-weight: 400;
@@ -152,6 +162,11 @@
         .slide-dark .logo-box {
             background: var(--text-light);
             color: var(--bg-dark);
+        }
+
+        .logo-box-large {
+            padding: 1.5rem 2rem;
+            font-size: 3rem;
         }
 
         .logo-text {
@@ -519,8 +534,17 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
         .animate-in {
             animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .animate-scale {
+            animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .delay-1 { animation-delay: 0.1s; opacity: 0; }
@@ -546,6 +570,15 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+        }
+
+        .center-content-full {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .text-center { text-align: center; }
@@ -574,6 +607,52 @@
             justify-content: center;
             margin: 1rem 0;
         }
+
+        /* Hero specific */
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex: 1;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .hero-logo {
+            background: var(--text-light);
+            color: var(--bg-dark);
+            padding: 1rem 1.5rem;
+            font-weight: 900;
+            font-size: 4rem;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .hero-title {
+            font-size: 10rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 0.85;
+            margin-left: 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-logo { font-size: 3rem; padding: 0.75rem 1rem; }
+            .hero-title { font-size: 7rem; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-brand { flex-direction: column; gap: 1rem; }
+            .hero-logo { font-size: 2.5rem; }
+            .hero-title { font-size: 5rem; margin-left: 0; }
+        }
     </style>
 </head>
 <body>
@@ -581,14 +660,14 @@
 
         <!-- SLIDE 1: Title -->
         <section class="slide slide-dark active" data-slide="1">
-            <div class="center-content">
-                <div class="logo animate-in">
-                    <div class="logo-box">CQT</div>
+            <div class="hero-container">
+                <div class="hero-brand animate-scale">
+                    <div class="hero-logo">CQT</div>
+                    <h1 class="hero-title">FUND</h1>
                 </div>
-                <h1 class="title title-large animate-in delay-1">FUND</h1>
-                <p class="subtitle animate-in delay-2" style="color: #6b7280; margin-top: 2rem; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.875rem;">CQT Investment Group</p>
-                <p class="slide-footer animate-in delay-3">www.cqtinvest.com</p>
+                <p class="animate-in delay-2" style="color: #6b7280; margin-top: 3rem; letter-spacing: 0.2em; text-transform: uppercase; font-size: 1rem; font-weight: 500;">CQT Investment Group</p>
             </div>
+            <p class="slide-footer animate-in delay-3" style="text-align: center;">www.cqtinvest.com</p>
         </section>
 
         <!-- SLIDE 2: Purpose -->
@@ -1042,7 +1121,7 @@
                     slide.classList.remove('active');
                     if (index + 1 === currentSlide) {
                         slide.classList.add('active');
-                        slide.querySelectorAll('.animate-in').forEach(el => {
+                        slide.querySelectorAll('.animate-in, .animate-scale').forEach(el => {
                             el.style.animation = 'none';
                             el.offsetHeight;
                             el.style.animation = null;
