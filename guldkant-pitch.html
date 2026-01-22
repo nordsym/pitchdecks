@@ -771,152 +771,96 @@
         </section>
 
         <!-- SLIDE 5: Branschen i förändring -->
-        <section class="slide candles-bg" data-slide="5">
-            <div class="flex-1 flex flex-col p-4 sm:p-6 md:p-12 lg:p-16">
-                <div class="mb-6 sm:mb-8">
-                    <p class="text-guldkant-gold-light uppercase tracking-widest text-xs sm:text-sm font-semibold animate-in">Vändpunkter & Anpassning</p>
-                    <h2 class="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 animate-in delay-1 text-white">Branschen i förändring</h2>
+        <section class="slide slide-split" data-slide="5">
+            <div class="flex flex-col lg:flex-row min-h-full">
+                <!-- Content -->
+                <div class="split-left bg-guldkant-cream lg:w-1/2 relative">
+                    <div class="p-4 sm:p-6 md:p-8 lg:p-10 h-full flex flex-col justify-center">
+                        <div class="mb-4 sm:mb-6">
+                            <p class="text-guldkant-gold uppercase tracking-widest text-xs sm:text-sm font-semibold animate-in">Vändpunkter & Anpassning</p>
+                            <h2 class="font-display text-2xl sm:text-3xl md:text-4xl mt-2 animate-in delay-1">Branschen i förändring</h2>
+                        </div>
+
+                        <div class="space-y-3 sm:space-y-4">
+                            <!-- Covid-19 -->
+                            <div class="card p-3 sm:p-4 animate-in delay-2">
+                                <div class="flex items-start gap-3">
+                                    <div class="icon-circle bg-blue-100 text-blue-600 flex-shrink-0 w-8 h-8">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <h3 class="font-display text-base sm:text-lg font-semibold">Covid-19</h3>
+                                            <span class="badge text-xs">2020-21</span>
+                                        </div>
+                                        <p class="text-guldkant-warm-gray text-xs sm:text-sm">Takeaway, digitala bokningar, utökad uteservering</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- #metoo -->
+                            <div class="card p-3 sm:p-4 animate-in delay-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="icon-circle bg-pink-100 text-pink-600 flex-shrink-0 w-8 h-8">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <h3 class="font-display text-base sm:text-lg font-semibold">#metoo</h3>
+                                            <span class="badge text-xs">Kultur</span>
+                                        </div>
+                                        <p class="text-guldkant-warm-gray text-xs sm:text-sm">Nolltolerans, tryggare rutiner, modernt ledarskap</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Elkris & Inflation -->
+                            <div class="card p-3 sm:p-4 animate-in delay-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="icon-circle bg-amber-100 text-amber-600 flex-shrink-0 w-8 h-8">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <h3 class="font-display text-base sm:text-lg font-semibold">Elkris & Inflation</h3>
+                                            <span class="badge text-xs">2022-23</span>
+                                        </div>
+                                        <p class="text-guldkant-warm-gray text-xs sm:text-sm">Energisnåla processer, menyoptimering, smart schema</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Klimat & Råvarubrist -->
+                            <div class="card p-3 sm:p-4 animate-in delay-5">
+                                <div class="flex items-start gap-3">
+                                    <div class="icon-circle bg-emerald-100 text-emerald-600 flex-shrink-0 w-8 h-8">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <h3 class="font-display text-base sm:text-lg font-semibold">Klimat & Råvaror</h3>
+                                            <span class="badge text-xs">Framtid</span>
+                                        </div>
+                                        <p class="text-guldkant-warm-gray text-xs sm:text-sm">Säsongsinköp, lokala leverantörer, svinnkontroll</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="space-y-3 sm:space-y-4 max-w-5xl">
-                    <!-- Covid-19 -->
-                    <div class="card flex flex-col md:flex-row gap-4 sm:gap-6 animate-in delay-2">
-                        <div class="flex items-start gap-3 sm:gap-4 md:w-1/2">
-                            <div class="icon-circle bg-blue-100 text-blue-600 flex-shrink-0">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="flex flex-wrap items-center gap-2 mb-1">
-                                    <h3 class="font-display text-lg sm:text-xl font-semibold">Covid-19</h3>
-                                    <span class="badge">2020-2021</span>
-                                </div>
-                                <p class="text-guldkant-warm-gray text-sm sm:text-base">En global pandemi som tvingade fram nya beteenden och säkerhetstänk.</p>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 md:border-l md:border-guldkant-beige md:pl-6">
-                            <p class="text-guldkant-gold text-xs sm:text-sm font-semibold uppercase tracking-wide mb-2">Guldkants anpassning</p>
-                            <ul class="space-y-1 text-guldkant-warm-gray text-xs sm:text-sm">
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Flexibla menyer & takeaway
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Digitala bokningar & "beställ vid bordet"
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Utökad uteservering året runt
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- #metoo -->
-                    <div class="card flex flex-col md:flex-row gap-4 sm:gap-6 animate-in delay-3">
-                        <div class="flex items-start gap-3 sm:gap-4 md:w-1/2">
-                            <div class="icon-circle bg-pink-100 text-pink-600 flex-shrink-0">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="flex flex-wrap items-center gap-2 mb-1">
-                                    <h3 class="font-display text-lg sm:text-xl font-semibold">#metoo</h3>
-                                    <span class="badge">Kultur</span>
-                                </div>
-                                <p class="text-guldkant-warm-gray text-sm sm:text-base">Ett uppvaknande för branschkulturen kring trakasserier och hierarkier.</p>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 md:border-l md:border-guldkant-beige md:pl-6">
-                            <p class="text-guldkant-gold text-xs sm:text-sm font-semibold uppercase tracking-wide mb-2">Våra värderingar</p>
-                            <ul class="space-y-1 text-guldkant-warm-gray text-xs sm:text-sm">
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Nolltolerans & tydlig policy
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Tryggare rutiner & visselblåsning
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Utbildning i modernt ledarskap
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Elkris & Inflation -->
-                    <div class="card flex flex-col md:flex-row gap-4 sm:gap-6 animate-in delay-4">
-                        <div class="flex items-start gap-3 sm:gap-4 md:w-1/2">
-                            <div class="icon-circle bg-amber-100 text-amber-600 flex-shrink-0">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="flex flex-wrap items-center gap-2 mb-1">
-                                    <h3 class="font-display text-lg sm:text-xl font-semibold">Elkris & Inflation</h3>
-                                    <span class="badge">2022-2023</span>
-                                </div>
-                                <p class="text-guldkant-warm-gray text-sm sm:text-base">Skenade kostnader som utmanar marginaler och prissättning.</p>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 md:border-l md:border-guldkant-beige md:pl-6">
-                            <p class="text-guldkant-gold text-xs sm:text-sm font-semibold uppercase tracking-wide mb-2">Strategiska drag</p>
-                            <ul class="space-y-1 text-guldkant-warm-gray text-xs sm:text-sm">
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Energisnåla köksprocesser
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Menyoptimering för marginal
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Smartare schemaläggning
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Klimat & Råvarubrist -->
-                    <div class="card flex flex-col md:flex-row gap-4 sm:gap-6 animate-in delay-5">
-                        <div class="flex items-start gap-3 sm:gap-4 md:w-1/2">
-                            <div class="icon-circle bg-emerald-100 text-emerald-600 flex-shrink-0">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="flex flex-wrap items-center gap-2 mb-1">
-                                    <h3 class="font-display text-lg sm:text-xl font-semibold">Klimat & Råvarubrist</h3>
-                                    <span class="badge">Framtid</span>
-                                </div>
-                                <p class="text-guldkant-warm-gray text-sm sm:text-base">En ny verklighet där hållbarhet och tillgång styr menyn.</p>
-                            </div>
-                        </div>
-                        <div class="md:w-1/2 md:border-l md:border-guldkant-beige md:pl-6">
-                            <p class="text-guldkant-gold text-xs sm:text-sm font-semibold uppercase tracking-wide mb-2">Vårt löfte</p>
-                            <ul class="space-y-1 text-guldkant-warm-gray text-xs sm:text-sm">
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Säsongsbaserade inköp
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Lokala leverantörer i fokus
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-guldkant-gold mt-1.5 flex-shrink-0"></span>
-                                    Aktiv svinnkontroll & beredskapsplaner
-                                </li>
-                            </ul>
-                        </div>
+                <!-- Image -->
+                <div class="split-right candles-bg lg:w-1/2 min-h-[40vh] lg:min-h-full">
+                    <div class="h-full flex items-center justify-center p-6 sm:p-8">
+                        <p class="font-display text-2xl sm:text-3xl md:text-4xl text-white text-center italic animate-in delay-4">"Förändring är vår konstant"</p>
                     </div>
                 </div>
             </div>
