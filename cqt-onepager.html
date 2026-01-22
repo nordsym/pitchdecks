@@ -37,7 +37,79 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes drawLine {
+            from { stroke-dashoffset: 1000; }
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-delay-1 { transition-delay: 0.1s; }
+        .animate-delay-2 { transition-delay: 0.2s; }
+        .animate-delay-3 { transition-delay: 0.3s; }
+        .animate-delay-4 { transition-delay: 0.4s; }
 
         /* ===== NAVBAR ===== */
         .navbar {
@@ -50,13 +122,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .navbar.scrolled {
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             padding: 0.75rem 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .nav-logo {
@@ -74,6 +147,11 @@
             font-weight: 900;
             font-size: 1.25rem;
             letter-spacing: -0.02em;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover .nav-logo-box {
+            transform: scale(1.05);
         }
 
         .nav-logo-text {
@@ -96,11 +174,27 @@
             font-weight: 500;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            transition: color 0.2s;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
             color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* ===== HERO ===== */
@@ -128,12 +222,50 @@
             pointer-events: none;
         }
 
+        .hero-bg-shapes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-shape {
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.05);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero-shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .hero-shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: 10%;
+            animation-delay: -5s;
+        }
+
+        .hero-shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 20%;
+            animation-delay: -10s;
+        }
+
         .hero-brand {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0;
             margin-bottom: 2rem;
+            animation: scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .hero-logo {
@@ -144,6 +276,11 @@
             font-size: 4rem;
             letter-spacing: -0.02em;
             line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-brand:hover .hero-logo {
+            transform: scale(1.02);
         }
 
         .hero-title {
@@ -160,6 +297,7 @@
             font-size: 1.25rem;
             max-width: 600px;
             margin-bottom: 1rem;
+            animation: fadeInUp 0.8s 0.3s both;
         }
 
         .hero-subtitle {
@@ -169,6 +307,7 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             margin-bottom: 3rem;
+            animation: fadeInUp 0.8s 0.5s both;
         }
 
         .hero-cta {
@@ -176,6 +315,7 @@
             gap: 1rem;
             flex-wrap: wrap;
             justify-content: center;
+            animation: fadeInUp 0.8s 0.7s both;
         }
 
         .btn {
@@ -188,9 +328,22 @@
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
             border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
         }
 
         .btn-primary {
@@ -199,7 +352,13 @@
         }
 
         .btn-primary:hover {
-            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 212, 191, 0.3);
+        }
+
+        .btn-primary:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
         .btn-secondary {
@@ -211,6 +370,7 @@
         .btn-secondary:hover {
             background: var(--text-light);
             color: var(--bg-dark);
+            transform: translateY(-2px);
         }
 
         .hero-footer {
@@ -218,11 +378,39 @@
             bottom: 2rem;
             color: #6b7280;
             font-size: 0.75rem;
+            animation: fadeIn 1s 1s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: fadeIn 1s 1.2s both;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #6b7280;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            animation: pulse 2s ease-in-out infinite;
         }
 
         /* ===== SECTIONS ===== */
         .section {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
+            position: relative;
         }
 
         .section-dark {
@@ -244,12 +432,13 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--text-muted);
+            color: var(--accent);
             margin-bottom: 1rem;
+            display: inline-block;
         }
 
         .section-dark .section-label {
-            color: #6b7280;
+            color: var(--accent);
         }
 
         .section-title {
@@ -300,6 +489,11 @@
             height: 200px;
             border: 2px solid var(--border);
             position: relative;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .geo-cube:hover {
+            transform: rotate(45deg) scale(1.05);
         }
 
         .geo-cube::before {
@@ -310,6 +504,11 @@
             width: 60%;
             height: 60%;
             border: 2px solid var(--border);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+        }
+
+        .geo-cube:hover::before {
+            transform: rotate(-90deg);
         }
 
         /* ===== PERFORMANCE ===== */
@@ -359,9 +558,21 @@
             stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .chart-line.animated {
+            stroke-dashoffset: 0;
         }
 
         .chart-area {
+            opacity: 0;
+            transition: opacity 1s ease 1s;
+        }
+
+        .chart-area.animated {
             opacity: 0.15;
         }
 
@@ -369,7 +580,18 @@
             fill: var(--bg-dark);
             stroke: var(--accent);
             stroke-width: 3;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
+
+        .chart-dot.animated {
+            opacity: 1;
+        }
+
+        .chart-dot:nth-child(4) { transition-delay: 0.5s; }
+        .chart-dot:nth-child(5) { transition-delay: 1s; }
+        .chart-dot:nth-child(6) { transition-delay: 1.5s; }
+        .chart-dot:nth-child(7) { transition-delay: 2s; }
 
         .section-dark .chart-dot {
             fill: var(--bg);
@@ -405,6 +627,12 @@
             padding: 0.5rem 1rem;
             font-weight: 900;
             font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.5s ease 2s, transform 0.5s ease 2s;
+        }
+
+        .chart-endpoint.animated {
+            opacity: 1;
         }
 
         .stats-column {
@@ -415,6 +643,11 @@
 
         .stat {
             text-align: right;
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateX(-5px);
         }
 
         .stat-label {
@@ -444,13 +677,42 @@
         }
 
         .card {
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             border: 1px solid var(--border);
             text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: transparent;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
         }
 
         .section-dark .card {
             border-color: var(--border-dark);
+        }
+
+        .section-dark .card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .card-number {
@@ -465,6 +727,12 @@
             font-weight: 700;
             font-size: 1.25rem;
             margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .card-number {
+            background: var(--accent);
+            transform: scale(1.1);
         }
 
         .section-dark .card-number {
@@ -503,35 +771,30 @@
             justify-content: center;
             background: var(--bg-dark);
             min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .triangle-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
         }
 
         .triangle {
-            width: 200px;
-            height: 200px;
-            border: 2px solid #444;
-            position: relative;
-        }
-
-        .triangle::before,
-        .triangle::after {
-            content: '';
             position: absolute;
+            inset: 0;
             border: 2px solid #444;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .triangle::before {
-            width: 160px;
-            height: 160px;
-            top: 20px;
-            left: 20px;
-        }
+        .triangle:nth-child(1) { transform: scale(1); }
+        .triangle:nth-child(2) { transform: scale(0.8); }
+        .triangle:nth-child(3) { transform: scale(0.6); }
 
-        .triangle::after {
-            width: 120px;
-            height: 120px;
-            top: 40px;
-            left: 40px;
-        }
+        .triangle-container:hover .triangle:nth-child(1) { transform: scale(1) rotate(10deg); }
+        .triangle-container:hover .triangle:nth-child(2) { transform: scale(0.8) rotate(-10deg); }
+        .triangle-container:hover .triangle:nth-child(3) { transform: scale(0.6) rotate(20deg); }
 
         .solution-content {
             display: flex;
@@ -544,6 +807,11 @@
             align-items: flex-start;
             gap: 1rem;
             margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .solution-item:hover {
+            transform: translateX(10px);
         }
 
         .solution-item-content p:first-child {
@@ -584,6 +852,13 @@
 
         .metric {
             text-align: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .metric:hover {
+            background: rgba(45, 212, 191, 0.1);
         }
 
         .metric-value {
@@ -616,6 +891,13 @@
             text-align: center;
             font-size: 0.875rem;
             font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .structure-box:hover {
+            border-color: var(--accent);
+            border-style: solid;
+            transform: translateY(-3px);
         }
 
         .structure-solid {
@@ -625,6 +907,12 @@
             padding: 1.5rem 3rem;
             font-size: 1.25rem;
             font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .structure-solid:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .structure-gp-lp {
@@ -652,6 +940,12 @@
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
         }
 
         /* ===== OFFER ===== */
@@ -683,6 +977,108 @@
             color: var(--bg-dark);
             font-weight: 700;
             text-align: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .offer-badge:hover {
+            transform: translateX(-10px);
+            background: var(--accent);
+        }
+
+        /* ===== FAQ ===== */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .section-dark .faq-item {
+            border-color: var(--border-dark);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+
+        .section-dark .faq-question {
+            color: var(--text-light);
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .faq-icon::before,
+        .faq-icon::after {
+            content: '';
+            position: absolute;
+            background: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-icon::before {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .faq-icon::after {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .faq-item.active .faq-icon::after {
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .section-dark .faq-answer p {
+            color: #9ca3af;
         }
 
         /* ===== ROADMAP ===== */
@@ -708,6 +1104,11 @@
             text-align: center;
             position: relative;
             z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .roadmap-item:hover {
+            transform: translateY(-5px);
         }
 
         .roadmap-dot {
@@ -721,6 +1122,13 @@
             justify-content: center;
             font-weight: 700;
             margin: 0 auto 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-item:hover .roadmap-dot {
+            background: var(--accent);
+            color: var(--bg-dark);
+            transform: scale(1.2);
         }
 
         .roadmap-label {
@@ -743,20 +1151,46 @@
 
         .team-member {
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
         }
 
         .team-photo {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: var(--border);
+            background: var(--border-dark);
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
             font-weight: 700;
-            color: var(--text-muted);
+            color: #6b7280;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-photo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-member:hover .team-photo {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(45, 212, 191, 0.3);
+        }
+
+        .team-member:hover .team-photo::before {
+            opacity: 0.2;
         }
 
         .team-name {
@@ -768,7 +1202,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--text-muted);
+            color: #6b7280;
             margin-top: 0.5rem;
         }
 
@@ -832,11 +1266,13 @@
             color: #9ca3af;
             text-decoration: none;
             font-size: 0.875rem;
-            transition: color 0.2s;
+            transition: color 0.2s, transform 0.2s;
+            display: inline-block;
         }
 
         .footer-links a:hover {
-            color: var(--text-light);
+            color: var(--accent);
+            transform: translateX(5px);
         }
 
         .footer-bottom {
@@ -952,7 +1388,7 @@
             }
 
             .section {
-                padding: 4rem 1.5rem;
+                padding: 5rem 1.5rem;
             }
 
             .section-title {
@@ -1006,6 +1442,14 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .hero-shape {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1042,6 +1486,7 @@
         </a>
         <div class="nav-links">
             <a href="#performance">Performance</a>
+            <a href="#faq">FAQ</a>
             <a href="#team">Team</a>
             <a href="#contact">Contact</a>
         </div>
@@ -1049,6 +1494,11 @@
 
     <!-- HERO -->
     <section class="hero" id="hero">
+        <div class="hero-bg-shapes">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+        </div>
         <div class="hero-brand">
             <div class="hero-logo">CQT</div>
             <h1 class="hero-title">FUND</h1>
@@ -1059,6 +1509,10 @@
             <a href="#contact" class="btn btn-primary">Contact Us</a>
             <a href="#performance" class="btn btn-secondary">Learn More</a>
         </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
         <p class="hero-footer">www.cqtinvest.com</p>
     </section>
 
@@ -1066,17 +1520,17 @@
     <section class="section" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-visual">
+                <div class="about-visual animate-on-scroll">
                     <div class="geo-cube"></div>
                 </div>
                 <div class="about-content">
-                    <div class="section-header">
+                    <div class="section-header animate-on-scroll">
                         <p class="section-label">Our Purpose</p>
                         <h2 class="section-title">Building Trust Through Performance</h2>
                     </div>
-                    <p>Sweden built AP7, one of the most trusted pension funds globally.</p>
-                    <p>CQT brings the proven Swedish investment methodology to international investors through CQT Fund.</p>
-                    <p>Simple, systematic, high-performance investing in global megatrends.</p>
+                    <p class="animate-on-scroll animate-delay-1">Sweden built AP7, one of the most trusted pension funds globally.</p>
+                    <p class="animate-on-scroll animate-delay-2">CQT brings the proven Swedish investment methodology to international investors through CQT Fund.</p>
+                    <p class="animate-on-scroll animate-delay-3">Simple, systematic, high-performance investing in global megatrends.</p>
                 </div>
             </div>
         </div>
@@ -1085,13 +1539,13 @@
     <!-- PERFORMANCE -->
     <section class="section section-dark" id="performance">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <p class="section-label">Track Record</p>
                 <h2 class="section-title">The Performance</h2>
                 <p class="section-subtitle">Not theory - proven in practice</p>
             </div>
             <div class="performance-grid">
-                <div class="chart-container">
+                <div class="chart-container animate-on-scroll" id="chart">
                     <div class="chart-grid-line" style="bottom: 25%;"></div>
                     <div class="chart-grid-line" style="bottom: 50%;"></div>
                     <div class="chart-grid-line" style="bottom: 75%;"></div>
@@ -1124,15 +1578,15 @@
                     <div class="chart-endpoint">+616.7%</div>
                 </div>
                 <div class="stats-column">
-                    <div class="stat">
+                    <div class="stat animate-on-scroll animate-delay-1">
                         <p class="stat-label">5Y</p>
                         <p class="stat-value">100.1%</p>
                     </div>
-                    <div class="stat">
+                    <div class="stat animate-on-scroll animate-delay-2">
                         <p class="stat-label">10Y</p>
                         <p class="stat-value">198.4%</p>
                     </div>
-                    <div class="stat">
+                    <div class="stat animate-on-scroll animate-delay-3">
                         <p class="stat-label">From Start</p>
                         <p class="stat-value highlight">616.7%</p>
                     </div>
@@ -1144,22 +1598,22 @@
     <!-- PHILOSOPHY -->
     <section class="section" id="philosophy">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <p class="section-label">Investment Approach</p>
                 <h2 class="section-title">A Clear Investment Philosophy</h2>
             </div>
             <div class="card-grid">
-                <div class="card">
+                <div class="card animate-on-scroll animate-delay-1">
                     <div class="card-number">1</div>
                     <h3 class="card-title">Risk</h3>
                     <p class="card-text">High returns require risk-taking. At the same time, we control the risk.</p>
                 </div>
-                <div class="card">
+                <div class="card animate-on-scroll animate-delay-2">
                     <div class="card-number">2</div>
                     <h3 class="card-title">Time</h3>
                     <p class="card-text">Embracing the forces shaping tomorrow.</p>
                 </div>
-                <div class="card">
+                <div class="card animate-on-scroll animate-delay-3">
                     <div class="card-number">3</div>
                     <h3 class="card-title">Responsibility</h3>
                     <p class="card-text">We don't make money off our savers. We make money for them.</p>
@@ -1172,30 +1626,34 @@
     <section class="section">
         <div class="container">
             <div class="solution-grid">
-                <div class="solution-visual">
-                    <div class="triangle"></div>
+                <div class="solution-visual animate-on-scroll">
+                    <div class="triangle-container">
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                        <div class="triangle"></div>
+                    </div>
                 </div>
                 <div class="solution-content">
-                    <div class="section-header">
+                    <div class="section-header animate-on-scroll">
                         <p class="section-label">Our Strategy</p>
                         <h2 class="section-title">The Solution</h2>
                         <p class="section-subtitle">A proven, systematic model - now accessible globally</p>
                     </div>
-                    <div class="solution-item">
+                    <div class="solution-item animate-on-scroll animate-delay-1">
                         <div class="card-number">1</div>
                         <div class="solution-item-content">
                             <p>Swedish inspired model</p>
                             <p>Absolute return focus</p>
                         </div>
                     </div>
-                    <div class="solution-item">
+                    <div class="solution-item animate-on-scroll animate-delay-2">
                         <div class="card-number">2</div>
                         <div class="solution-item-content">
                             <p>Global indices</p>
                             <p>Selective leverage</p>
                         </div>
                     </div>
-                    <div class="solution-item">
+                    <div class="solution-item animate-on-scroll animate-delay-3">
                         <div class="card-number">3</div>
                         <div class="solution-item-content">
                             <p>Risk-managed</p>
@@ -1211,27 +1669,27 @@
     <section class="section section-dark" id="metrics">
         <div class="container">
             <div class="metrics-header">
-                <div>
+                <div class="animate-on-scroll">
                     <h2 class="section-title">Model-Driven Allocation</h2>
                 </div>
-                <div>
+                <div class="animate-on-scroll animate-delay-1">
                     <h2 class="section-title">Meets Tactical Execution</h2>
                 </div>
             </div>
             <div class="metrics-row">
-                <div class="metric">
+                <div class="metric animate-on-scroll animate-delay-1">
                     <p class="metric-value">+20% APY</p>
                     <p class="metric-label">Target</p>
                 </div>
-                <div class="metric">
+                <div class="metric animate-on-scroll animate-delay-2">
                     <p class="metric-value">ESMA Risk 5</p>
                     <p class="metric-label">Risk</p>
                 </div>
-                <div class="metric">
+                <div class="metric animate-on-scroll animate-delay-3">
                     <p class="metric-value">Performance only</p>
                     <p class="metric-label">Fees</p>
                 </div>
-                <div class="metric">
+                <div class="metric animate-on-scroll animate-delay-4">
                     <p class="metric-value">$250,000 USD</p>
                     <p class="metric-label">Minimum</p>
                 </div>
@@ -1242,17 +1700,17 @@
     <!-- FUND STRUCTURE -->
     <section class="section" id="structure">
         <div class="container">
-            <div class="section-header" style="text-align: center;">
+            <div class="section-header animate-on-scroll" style="text-align: center;">
                 <p class="section-label">Fund Architecture</p>
                 <h2 class="section-title">The Structure</h2>
             </div>
             <div class="structure-diagram">
                 <div class="structure-gp-lp">
-                    <div>
+                    <div class="animate-on-scroll">
                         <p class="structure-label">General Partners (GP's)</p>
                         <div class="badge">CQT Investment Group</div>
                     </div>
-                    <div>
+                    <div class="animate-on-scroll animate-delay-1">
                         <p class="structure-label">Limited Partners (LP's)</p>
                         <div class="structure-row" style="justify-content: flex-start;">
                             <div class="structure-box">Individual</div>
@@ -1266,10 +1724,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="structure-row">
+                <div class="structure-row animate-on-scroll animate-delay-2">
                     <div class="structure-solid">CQT [ THE FUND ]</div>
                 </div>
-                <div class="structure-row">
+                <div class="structure-row animate-on-scroll animate-delay-3">
                     <div class="structure-box">Index</div>
                     <div class="structure-box">Leverage</div>
                     <div class="structure-box">Systematic</div>
@@ -1281,57 +1739,114 @@
     <!-- THE OFFER -->
     <section class="section section-dark" id="offer">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <p class="section-label">Investment Opportunity</p>
                 <h2 class="section-title">The Offer</h2>
                 <p class="section-subtitle">Exclusive Early Investor Advantage</p>
             </div>
             <div class="offer-grid">
-                <div class="offer-content">
+                <div class="offer-content animate-on-scroll">
                     <p>Raising <strong>$100M USD</strong></p>
                     <p>All funds allocated as AUM.</p>
                     <p>Early investors receive <strong>25% equity stake</strong> in the fund structure.</p>
                     <p>Sign PACTs of 10M USD, min &gt;250k USD</p>
                 </div>
                 <div class="offer-badges">
-                    <div class="offer-badge">PACTs of 10M USD</div>
-                    <div class="offer-badge">25% equity stake</div>
-                    <div class="offer-badge">Swedish pension-fund-inspired model</div>
+                    <div class="offer-badge animate-on-scroll animate-delay-1">PACTs of 10M USD</div>
+                    <div class="offer-badge animate-on-scroll animate-delay-2">25% equity stake</div>
+                    <div class="offer-badge animate-on-scroll animate-delay-3">Swedish pension-fund-inspired model</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-header animate-on-scroll" style="text-align: center;">
+                <p class="section-label">Questions</p>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        What is the minimum investment?
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The minimum investment is $250,000 USD. This threshold ensures alignment with our institutional-grade strategy and allows for meaningful participation in the fund's performance.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll animate-delay-1">
+                    <button class="faq-question">
+                        How does the Swedish AP7 model work?
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The AP7 model is based on systematic, rules-based investing with selective leverage on global indices. It prioritizes long-term returns through disciplined risk management and low-cost execution, avoiding market timing and emotional decisions.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll animate-delay-2">
+                    <button class="faq-question">
+                        What is the fee structure?
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>CQT operates on a performance-only fee model. We only succeed when you succeed. There are no management fees - our compensation is entirely aligned with delivering returns above the benchmark.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll animate-delay-3">
+                    <button class="faq-question">
+                        Where is the fund regulated?
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>CQT Fund operates under the DIFC (Dubai International Financial Centre) regulatory framework, one of the world's leading financial hubs with robust investor protections and international standards.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll animate-delay-4">
+                    <button class="faq-question">
+                        What is the expected return target?
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our target is +20% annual percentage yield (APY). This is based on historical performance of the Swedish model methodology, with an ESMA Risk rating of 5 reflecting the growth-oriented strategy.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ROADMAP -->
-    <section class="section" id="roadmap">
+    <section class="section section-dark" id="roadmap">
         <div class="container">
-            <div class="section-header" style="text-align: center;">
+            <div class="section-header animate-on-scroll" style="text-align: center;">
                 <p class="section-label">Timeline</p>
                 <h2 class="section-title">Future Roadmap</h2>
             </div>
             <div class="roadmap">
-                <div class="roadmap-item">
+                <div class="roadmap-item animate-on-scroll animate-delay-1">
                     <div class="roadmap-dot">1</div>
                     <div>
                         <p class="roadmap-label">PACTs</p>
                         <p class="roadmap-date">Q1 2026</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
+                <div class="roadmap-item animate-on-scroll animate-delay-2">
                     <div class="roadmap-dot">2</div>
                     <div>
                         <p class="roadmap-label">SUB-FUND</p>
                         <p class="roadmap-date">Q2 2026</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
+                <div class="roadmap-item animate-on-scroll animate-delay-3">
                     <div class="roadmap-dot">3</div>
                     <div>
                         <p class="roadmap-label">100M</p>
                         <p class="roadmap-date">Q4 2026</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
+                <div class="roadmap-item animate-on-scroll animate-delay-4">
                     <div class="roadmap-dot">4</div>
                     <div>
                         <p class="roadmap-label">SCALE</p>
@@ -1343,29 +1858,29 @@
     </section>
 
     <!-- TEAM -->
-    <section class="section section-dark" id="team">
+    <section class="section" id="team">
         <div class="container">
-            <div class="section-header" style="text-align: center;">
+            <div class="section-header animate-on-scroll" style="text-align: center;">
                 <p class="section-label">Leadership</p>
                 <h2 class="section-title">The Team</h2>
             </div>
             <div class="team-grid">
-                <div class="team-member">
+                <div class="team-member animate-on-scroll animate-delay-1">
                     <div class="team-photo">CE</div>
                     <p class="team-name">Charlie Ejerholm</p>
                     <p class="team-role">Assets Manager</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member animate-on-scroll animate-delay-2">
                     <div class="team-photo">MA</div>
                     <p class="team-name">Mohamad Alubeid</p>
                     <p class="team-role">Investment Manager</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member animate-on-scroll animate-delay-3">
                     <div class="team-photo">MH</div>
                     <p class="team-name">Maxime Holm</p>
                     <p class="team-role">Investor Relations</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member animate-on-scroll animate-delay-4">
                     <div class="team-photo">DC</div>
                     <p class="team-name">Danish Chotani</p>
                     <p class="team-role">Advisory Board</p>
@@ -1392,6 +1907,7 @@
                     <li><a href="#performance">Performance</a></li>
                     <li><a href="#philosophy">Philosophy</a></li>
                     <li><a href="#structure">Structure</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#team">Team</a></li>
                 </ul>
             </div>
@@ -1436,6 +1952,77 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Trigger chart animation
+                    if (entry.target.id === 'chart') {
+                        animateChart();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Also observe the chart container
+        const chartContainer = document.getElementById('chart');
+        if (chartContainer) {
+            observer.observe(chartContainer);
+        }
+
+        // Chart animation
+        function animateChart() {
+            const chartLine = document.querySelector('.chart-line');
+            const chartArea = document.querySelector('.chart-area');
+            const chartDots = document.querySelectorAll('.chart-dot');
+            const chartEndpoint = document.querySelector('.chart-endpoint');
+
+            if (chartLine) chartLine.classList.add('animated');
+            if (chartArea) chartArea.classList.add('animated');
+            chartDots.forEach(dot => dot.classList.add('animated'));
+            if (chartEndpoint) chartEndpoint.classList.add('animated');
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Parallax effect on hero shapes (subtle)
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const shapes = document.querySelectorAll('.hero-shape');
+
+            shapes.forEach((shape, index) => {
+                const speed = 0.05 * (index + 1);
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
     </script>
