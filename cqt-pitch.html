@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CQT Fund | Investor Deck</title>
+    <title>CQT Fund | Swedish Investment Methodology</title>
+    <meta name="description" content="CQT brings the proven Swedish investment methodology to international investors. $100M raise, 25% equity stake for early investors.">
+
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRLNF7DHVJ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KRLNF7DHVJ', {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +31,6 @@
             --text-muted: #6b7280;
             --accent: #2dd4bf;
             --border: #e5e7eb;
-            --border-dark: #1f1f1f;
         }
 
         * {
@@ -27,105 +39,57 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
-            overflow: hidden;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .slide-container {
-            width: 100vw;
-            height: 100vh;
+        /* SECTION BASE */
+        .section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
         }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: none;
-            padding: 4rem 6rem 5rem;
-            overflow-y: auto;
-        }
-
-        .slide.active {
-            display: flex;
-            flex-direction: column;
-        }
-
-        @media (max-height: 800px) {
-            .slide { padding: 3rem 4rem 5rem; }
-        }
-
-        @media (max-width: 768px) {
-            .slide { padding: 2rem 2rem 5rem; }
-        }
-
-        /* Dark slides */
-        .slide-dark {
+        .section-dark {
             background: var(--bg-dark);
             color: var(--text-light);
         }
 
-        /* Split slides */
-        .slide-split {
-            flex-direction: row;
-            padding: 0;
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
         }
 
-        .split-left, .split-right {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem;
-        }
-
-        .split-left {
-            background: var(--bg);
-        }
-
-        .split-right {
-            background: var(--bg-dark);
-            color: var(--text-light);
-        }
-
-        /* Typography */
+        /* TYPOGRAPHY */
         .title {
             font-size: 4rem;
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: -0.02em;
-        }
-
-        .title-large {
-            font-size: 5rem;
-        }
-
-        .title-hero {
-            font-size: 12rem;
-            letter-spacing: -0.03em;
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .title-hero { font-size: 6rem; }
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
 
         .subtitle {
             font-size: 1.25rem;
-            font-weight: 400;
-            line-height: 1.6;
             color: var(--text-muted);
             max-width: 600px;
         }
 
-        .slide-dark .subtitle {
+        .section-dark .subtitle {
             color: #9ca3af;
         }
 
@@ -134,105 +98,71 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--text-muted);
+            color: var(--accent);
             margin-bottom: 1rem;
         }
 
-        .slide-dark .label {
-            color: #6b7280;
+        /* HERO */
+        .hero {
+            background: var(--bg-dark);
+            text-align: center;
         }
 
-        /* Logo */
-        .logo {
-            display: inline-flex;
+        .hero-brand {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 0;
             margin-bottom: 2rem;
         }
 
-        .logo-box {
-            background: var(--text);
-            color: var(--bg);
-            padding: 0.75rem 1rem;
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .slide-dark .logo-box {
+        .hero-logo {
             background: var(--text-light);
             color: var(--bg-dark);
-        }
-
-        .logo-box-large {
             padding: 1.5rem 2rem;
-            font-size: 3rem;
+            font-weight: 900;
+            font-size: 4rem;
+            letter-spacing: -0.02em;
+            line-height: 1;
         }
 
-        .logo-text {
+        .hero-title {
+            font-size: 10rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 0.85;
+            margin-left: 1rem;
+            color: var(--text-light);
+        }
+
+        .hero-tagline {
+            color: #9ca3af;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            color: var(--text-light);
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.2em;
             text-transform: uppercase;
         }
 
-        /* Geometric shapes */
-        .geo-shape {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.8;
-        }
-
-        .geo-triangle {
-            width: 300px;
-            height: 300px;
-            border: 2px solid currentColor;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            background: transparent;
-        }
-
-        .geo-cube {
-            width: 200px;
-            height: 200px;
-            border: 2px solid currentColor;
-            transform: rotate(45deg);
-        }
-
-        /* Stats */
-        .stats-row {
-            display: flex;
+        /* PERFORMANCE */
+        .performance-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
             gap: 4rem;
-            margin-top: 2rem;
+            align-items: end;
+            margin-top: 3rem;
         }
 
-        .stat {
-            text-align: right;
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-value {
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        /* Performance Chart */
         .chart-container {
             position: relative;
-            flex: 2;
             height: 320px;
             border-left: 2px solid var(--border);
             border-bottom: 2px solid var(--border);
-            margin-left: 3rem;
-            margin-bottom: 2.5rem;
         }
 
         .chart-grid-line {
@@ -250,7 +180,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: visible;
         }
 
         .chart-line {
@@ -261,39 +190,11 @@
             stroke-linejoin: round;
         }
 
-        .chart-line-glow {
-            fill: none;
-            stroke: var(--accent);
-            stroke-width: 8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            opacity: 0.2;
-            filter: blur(4px);
-        }
-
-        .chart-line-animated {
-            stroke-dasharray: 800;
-            stroke-dashoffset: 800;
-            animation: drawLine 1.5s ease-out forwards;
-        }
-
-        .chart-area {
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out 1s forwards;
-        }
-
         .chart-dot {
             fill: #fff;
             stroke: var(--accent);
             stroke-width: 3;
-            opacity: 0;
-            animation: dotIn 0.4s ease-out forwards;
         }
-
-        .chart-dot-1 { animation-delay: 0.2s; }
-        .chart-dot-2 { animation-delay: 0.6s; }
-        .chart-dot-3 { animation-delay: 1s; }
-        .chart-dot-4 { animation-delay: 1.4s; }
 
         .chart-label {
             position: absolute;
@@ -325,29 +226,38 @@
             padding: 0.5rem 1rem;
             font-weight: 900;
             font-size: 1rem;
-            opacity: 0;
-            animation: slideIn 0.5s ease-out 1.6s forwards;
         }
 
-        @keyframes drawLine {
-            to { stroke-dashoffset: 0; }
+        .stats-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        @keyframes fadeIn {
-            to { opacity: 0.15; }
+        .stat {
+            text-align: right;
         }
 
-        @keyframes dotIn {
-            0% { opacity: 0; transform: scale(0); }
-            100% { opacity: 1; transform: scale(1); }
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
         }
 
-        @keyframes slideIn {
-            0% { opacity: 0; transform: translateX(80%); }
-            100% { opacity: 1; transform: translateX(100%); }
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
         }
 
-        /* Cards */
+        .stat-value.highlight {
+            color: var(--accent);
+        }
+
+        /* PHILOSOPHY */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -355,40 +265,21 @@
             margin-top: 3rem;
         }
 
-        .card-grid-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .card-grid-4 {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        @media (max-width: 1024px) {
-            .card-grid { grid-template-columns: repeat(2, 1fr); }
-            .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 640px) {
-            .card-grid, .card-grid-2, .card-grid-4 { grid-template-columns: 1fr; }
-        }
-
         .card {
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .slide-dark .card {
-            border-color: var(--border-dark);
-        }
-
-        .card-dark {
-            background: var(--bg-dark);
-            color: var(--text-light);
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .card-number {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 3rem;
+            height: 3rem;
             background: var(--bg-dark);
             color: var(--text-light);
             border-radius: 50%;
@@ -396,12 +287,8 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .slide-dark .card-number {
-            background: var(--text-light);
-            color: var(--bg-dark);
+            font-size: 1.25rem;
+            margin: 0 auto 1.5rem;
         }
 
         .card-title {
@@ -409,1660 +296,503 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .card-text {
             font-size: 0.9375rem;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        .slide-dark .card-text {
-            color: #9ca3af;
-        }
-
-        /* Badges */
-        .badge {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            font-weight: 700;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .slide-dark .badge {
-            background: var(--text-light);
-            color: var(--bg-dark);
-        }
-
-        /* Metrics row */
+        /* KEY METRICS */
         .metrics-row {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 4rem;
-            padding-top: 4rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .metric {
-            text-align: center;
-        }
-
-        .metric-label {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-value {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        /* Team */
-        .team-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
             margin-top: 3rem;
         }
 
-        @media (max-width: 768px) {
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        .team-member {
+        .metric {
             text-align: center;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
         }
 
-        .team-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--border);
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .metric:hover {
+            background: rgba(45, 212, 191, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
         }
 
-        .team-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .team-role {
-            font-size: 0.75rem;
+        .metric-label {
+            font-size: 0.875rem;
+            color: #9ca3af;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
         }
 
-        /* Timeline */
-        .timeline {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 4rem;
-            position: relative;
-            padding: 0 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 1.25rem;
-            left: 2rem;
-            right: 2rem;
-            height: 2px;
-            background: repeating-linear-gradient(90deg, var(--text-muted) 0, var(--text-muted) 8px, transparent 8px, transparent 16px);
-        }
-
-        .timeline-item {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .timeline-dot {
-            width: 2.5rem;
-            height: 2.5rem;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            border-radius: 50%;
-            display: flex;
+        /* THE OFFER */
+        .offer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin: 0 auto 1rem;
-        }
-
-        .timeline-label {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .timeline-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        /* CTA Buttons */
-        .cta-row {
-            display: flex;
-            gap: 1.5rem;
             margin-top: 3rem;
         }
 
-        .cta-button {
+        .offer-content p {
+            margin-bottom: 1rem;
+            color: #9ca3af;
+            font-size: 1.125rem;
+        }
+
+        .offer-content p strong {
+            color: var(--text-light);
+        }
+
+        .offer-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .badge {
+            padding: 1.5rem 2rem;
+            background: var(--text-light);
+            color: var(--bg-dark);
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: var(--accent);
+            transform: translateX(-10px);
+        }
+
+        /* CTA */
+        .cta-content {
+            text-align: center;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
+            gap: 0.5rem;
+            padding: 1.25rem 2.5rem;
             font-weight: 600;
             font-size: 1rem;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: none;
         }
 
-        .cta-primary {
-            background: var(--bg-dark);
-            color: var(--text-light);
-        }
-
-        .cta-primary:hover {
-            background: #1f1f1f;
-        }
-
-        .slide-dark .cta-primary {
+        .btn-primary {
             background: var(--text-light);
             color: var(--bg-dark);
         }
 
-        .cta-secondary {
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 212, 191, 0.3);
+        }
+
+        .btn-secondary {
             background: transparent;
-            border: 2px solid var(--bg-dark);
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-light);
             color: var(--bg-dark);
         }
 
-        .cta-secondary:hover {
+        /* FOOTER */
+        .footer {
             background: var(--bg-dark);
             color: var(--text-light);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .slide-dark .cta-secondary {
-            border-color: var(--text-light);
-            color: var(--text-light);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
         }
 
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
+        .footer-logo {
+            max-width: 200px;
+            margin-bottom: 1.5rem;
         }
 
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
+        .footer-text {
+            color: #9ca3af;
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            max-width: 400px;
         }
 
-        .modal {
-            background: var(--bg);
-            max-width: 500px;
-            width: 90%;
-            padding: 3rem;
-            position: relative;
-            transform: translateY(20px) scale(0.95);
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active .modal {
-            transform: translateY(0) scale(1);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 2rem;
-            height: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            transition: color 0.2s;
-        }
-
-        .modal-close:hover {
-            color: var(--text);
-        }
-
-        .modal-title {
-            font-size: 1.75rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .modal-subtitle {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .modal-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .modal-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f9fafb;
-            border: 1px solid var(--border);
-        }
-
-        .modal-contact-icon {
-            width: 2.5rem;
-            height: 2.5rem;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .modal-contact-text {
-            flex: 1;
-        }
-
-        .modal-contact-label {
-            font-size: 0.75rem;
+        .footer-title {
+            font-size: 0.875rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--text-muted);
-            margin-bottom: 0.25rem;
-        }
-
-        .modal-contact-value {
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .modal-contact-value a {
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .modal-contact-value a:hover {
-            text-decoration: underline;
-        }
-
-        .modal-cta {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            background: var(--bg-dark);
+            margin-bottom: 1.5rem;
             color: var(--text-light);
-            text-align: center;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
             text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .modal-cta:hover {
-            background: #1f1f1f;
-        }
-
-        .modal-note {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
             font-size: 0.875rem;
-            color: var(--text-muted);
-            text-align: center;
+            transition: color 0.3s ease;
         }
 
-        /* Navigation */
-        .nav-controls {
-            position: fixed;
-            bottom: 0.25rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.95);
-            border: 1px solid var(--border);
-            border-radius: 9999px;
-            padding: 0.25rem 0.75rem;
-            z-index: 100;
-            font-size: 0.7rem;
-            opacity: 0.85;
+        .footer-links a:hover {
+            color: var(--accent);
         }
 
-        .nav-controls:hover {
-            opacity: 1;
-        }
-
-        .nav-btn {
-            width: 1.75rem;
-            height: 1.75rem;
-            border-radius: 50%;
-            border: none;
-            background: var(--border);
-            color: var(--text);
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .nav-btn:hover:not(:disabled) {
-            background: var(--bg-dark);
-            color: var(--text-light);
-        }
-
-        .nav-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .nav-counter {
-            font-weight: 500;
-            color: var(--text-muted);
-            min-width: 3rem;
-            text-align: center;
-        }
-
-        /* Hero Video Effect */
-        .hero-video-effect {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            z-index: 0;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .gradient-layer {
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            filter: blur(80px);
-            animation: float-rotate 20s ease-in-out infinite;
-        }
-
-        .gradient-1 {
-            top: -25%;
-            left: -25%;
-            animation-delay: 0s;
-            background: radial-gradient(circle, rgba(45, 212, 191, 0.3) 0%, transparent 60%);
-        }
-
-        .gradient-2 {
-            top: 20%;
-            right: -30%;
-            animation-delay: -7s;
-            background: radial-gradient(circle, rgba(147, 112, 219, 0.2) 0%, transparent 60%);
-        }
-
-        .gradient-3 {
-            bottom: -20%;
-            left: 10%;
-            animation-delay: -14s;
-            background: radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, transparent 60%);
-        }
-
-        @keyframes float-rotate {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg) scale(1);
-            }
-            33% {
-                transform: translate(50px, -30px) rotate(120deg) scale(1.1);
-            }
-            66% {
-                transform: translate(-30px, 40px) rotate(240deg) scale(0.95);
-            }
-        }
-
-        /* Reduce motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            .gradient-layer {
-                animation: none;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .animate-in {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .animate-scale {
-            animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .delay-1 { animation-delay: 0.1s; opacity: 0; }
-        .delay-2 { animation-delay: 0.2s; opacity: 0; }
-        .delay-3 { animation-delay: 0.3s; opacity: 0; }
-        .delay-4 { animation-delay: 0.4s; opacity: 0; }
-
-        /* Footer */
-        .slide-footer {
-            margin-top: auto;
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
             padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .slide-dark .slide-footer {
             color: #6b7280;
         }
 
-        /* Centered content */
-        .center-content {
-            flex: 1;
+        .footer-legal {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            gap: 2rem;
         }
 
-        .center-content-full {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        .footer-legal a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .text-center { text-align: center; }
-
-        /* Structure diagram */
-        .structure-box {
-            padding: 1rem 2rem;
-            border: 2px dashed var(--border);
-            text-align: center;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .structure-solid {
-            background: var(--bg-dark);
+        .footer-legal a:hover {
             color: var(--text-light);
-            border: none;
-            padding: 1.5rem 3rem;
-            font-size: 1.25rem;
-            font-weight: 700;
         }
 
-        .structure-row {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 1rem 0;
-        }
-
-        /* Hero specific */
-        .hero-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            flex: 1;
-        }
-
-        .hero-brand {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0;
-        }
-
-        .hero-logo {
-            background: var(--text-light);
-            color: var(--bg-dark);
-            padding: 1rem 1.5rem;
-            font-weight: 900;
-            font-size: 4rem;
-            letter-spacing: -0.02em;
-            line-height: 1;
-        }
-
-        .hero-title {
-            font-size: 10rem;
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            line-height: 0.85;
-            margin-left: 1rem;
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .hero-logo { font-size: 3rem; padding: 0.75rem 1rem; }
-            .hero-title { font-size: 7rem; }
-        }
-
-        @media (max-width: 640px) {
-            .hero-brand { flex-direction: column; gap: 1rem; }
-            .hero-logo { font-size: 2.5rem; }
-            .hero-title { font-size: 5rem; margin-left: 0; }
-        }
-
-        /* ========================================
-           COMPREHENSIVE MOBILE STYLES
-           ======================================== */
-
-        @media (max-width: 768px) {
-            /* Base slide adjustments */
-            .slide {
-                padding: 1.5rem 1.25rem 4rem;
-            }
-
-            /* Split slides stack vertically */
-            .slide-split {
-                flex-direction: column;
-            }
-
-            .split-left, .split-right {
-                flex: none;
-                width: 100%;
-                padding: 2rem 1.5rem;
-                min-height: auto;
-            }
-
-            /* Hide decorative shapes on mobile */
-            .split-left > div[style*="border"]:not(.badge):not(.card-number),
-            .split-right > div[style*="border"]:not(.badge):not(.card-number) {
-                display: none !important;
-            }
-
-            /* Typography scaling */
-            .title {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .title[style*="font-size: 5rem"] {
-                font-size: 2.5rem !important;
-            }
-
-            .title[style*="font-size: 2.5rem"] {
-                font-size: 1.5rem !important;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            /* Hero slide */
             .hero-logo {
-                font-size: 2rem;
-                padding: 0.5rem 0.75rem;
+                font-size: 3rem;
+                padding: 1rem 1.5rem;
             }
 
             .hero-title {
-                font-size: 3.5rem;
+                font-size: 7rem;
             }
 
-            /* Stats */
-            .stat-value {
-                font-size: 2rem;
-            }
-
-            .stats-row {
-                gap: 1.5rem;
-            }
-
-            /* Chart - full width, stacked layout */
-            .chart-container {
-                height: 200px;
-                margin-left: 2rem;
-                margin-bottom: 3rem;
-                flex: none;
-                width: calc(100% - 2rem);
-            }
-
-            .chart-endpoint {
-                font-size: 0.75rem;
-                padding: 0.35rem 0.5rem;
-                right: -0.5rem;
-            }
-
-            .chart-y-label {
-                font-size: 0.55rem;
-                left: -2rem;
-            }
-
-            /* Performance slide - stack chart and stats */
-            .perf-layout {
-                flex-direction: column !important;
-                gap: 2rem !important;
-            }
-
-            .perf-layout .stats-row {
-                flex-direction: row !important;
-                justify-content: space-around;
-                width: 100%;
-            }
-
-            .perf-layout .stat {
-                text-align: center;
-            }
-
-            /* Value proposition layout */
-            .value-prop-layout {
-                flex-direction: column !important;
-                gap: 2rem !important;
-            }
-
-            .value-prop-layout > div[style*="width: 150px"] {
-                width: 80px !important;
-                height: 80px !important;
-            }
-
-            /* Timeline layout */
-            .timeline-layout {
-                flex-direction: column !important;
-                gap: 2rem !important;
-            }
-
-            /* Offer layout */
-            .offer-layout {
-                flex-direction: column !important;
-                gap: 2rem !important;
-            }
-
-            /* Metrics header */
-            .metrics-header {
-                flex-direction: column !important;
-                gap: 1rem;
-            }
-
-            .metrics-header > div {
-                padding: 0 !important;
-            }
-
-            .metrics-header-right {
-                border-left: none !important;
-                border-top: 1px solid var(--border);
-                padding-top: 1rem !important;
-            }
-
-            /* Structure slide */
-            .structure-title {
-                writing-mode: horizontal-tb !important;
-                position: static !important;
-                transform: none !important;
-                margin-bottom: 1.5rem;
-            }
-
-            .structure-content {
-                margin-left: 0 !important;
-            }
-
-            .structure-gp-lp {
-                flex-direction: column !important;
+            .performance-grid,
+            .offer-grid {
+                grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            /* Cards */
-            .card {
-                padding: 1.25rem;
-            }
-
-            .card-grid {
-                gap: 1rem;
-                margin-top: 2rem;
-            }
-
-            /* Badges */
-            .badge {
-                padding: 0.5rem 1rem;
-                font-size: 0.75rem;
-            }
-
-            /* Metrics row - grid on mobile */
             .metrics-row {
-                display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-                margin-top: 2rem;
-                padding-top: 2rem;
-            }
-
-            .metric-label {
-                font-size: 1rem;
-            }
-
-            .metric-value {
-                font-size: 0.75rem;
-            }
-
-
-            /* Team grid */
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .team-photo {
-                width: 80px;
-                height: 80px;
-                font-size: 1.5rem;
-            }
-
-            .team-name {
-                font-size: 1rem;
-            }
-
-            /* Timeline - vertical on mobile */
-            .timeline {
-                flex-direction: column;
-                gap: 1.5rem;
-                padding: 0;
-                margin-top: 2rem;
-            }
-
-            .timeline::before {
-                display: none;
-            }
-
-            .timeline-item {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                text-align: left;
-            }
-
-            .timeline-dot {
-                margin: 0;
-                flex-shrink: 0;
-            }
-
-            .timeline-label {
-                font-size: 1.25rem;
-            }
-
-            .structure-row {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-
-            .structure-box {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.7rem;
-                flex: 1 1 auto;
-                min-width: calc(50% - 0.5rem);
-            }
-
-            .structure-solid {
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
-            }
-
-
-            /* CTA buttons - stack */
-            .cta-row {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                justify-content: center;
-                padding: 0.875rem 1.5rem;
-                font-size: 0.875rem;
-            }
-
-            /* Navigation - larger touch targets */
-            .nav-controls {
-                padding: 0.5rem 1rem;
-                gap: 0.75rem;
-                bottom: 0.5rem;
-            }
-
-            .nav-btn {
-                width: 2.5rem;
-                height: 2.5rem;
-            }
-
-            .nav-counter {
-                font-size: 0.875rem;
-            }
-
-            /* Modal */
-            .modal {
-                padding: 2rem 1.5rem;
-                margin: 1rem;
-                max-height: 90vh;
-                overflow-y: auto;
-            }
-
-            .modal-title {
-                font-size: 1.5rem;
             }
         }
 
-        /* Extra small screens (< 400px) */
-        @media (max-width: 400px) {
-            .slide {
-                padding: 1rem 1rem 4rem;
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 1.5rem;
             }
 
-            .title {
-                font-size: 1.75rem;
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .hero-logo {
-                font-size: 1.75rem;
-            }
-
-            .stat-value {
-                font-size: 1.5rem;
-            }
-
-            .team-grid {
+            .hero-brand {
+                flex-direction: column;
                 gap: 1rem;
             }
 
-            .team-photo {
-                width: 60px;
-                height: 60px;
-                font-size: 1.25rem;
+            .hero-logo {
+                font-size: 2.5rem;
             }
 
-            .team-name {
-                font-size: 0.875rem;
+            .hero-title {
+                font-size: 4rem;
+                margin-left: 0;
             }
 
-            .structure-box {
-                min-width: 100%;
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
+            }
+
+            .cta-row {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="slide-container">
-
-        <!-- SLIDE 1: Title -->
-        <section class="slide slide-dark active" data-slide="1">
-            <!-- Hero Video Effect -->
-            <div class="hero-video-effect">
-                <div class="gradient-layer gradient-1"></div>
-                <div class="gradient-layer gradient-2"></div>
-                <div class="gradient-layer gradient-3"></div>
-            </div>
-
-            <div class="hero-container">
-                <div class="hero-brand animate-scale">
-                    <div class="hero-logo">CQT</div>
-                    <h1 class="hero-title">FUND</h1>
-                </div>
-                <p class="animate-in delay-2" style="color: #6b7280; margin-top: 3rem; letter-spacing: 0.2em; text-transform: uppercase; font-size: 1rem; font-weight: 500;">CQT Investment Group</p>
-            </div>
-            <p class="slide-footer animate-in delay-3" style="text-align: center;">www.cqtinvest.com</p>
-        </section>
-
-        <!-- SLIDE 2: Purpose -->
-        <section class="slide slide-split" data-slide="2">
-            <div class="split-left">
-                <div style="width: 200px; height: 200px; border: 2px solid #ccc; position: relative;">
-                    <div style="position: absolute; top: 20%; left: 20%; width: 60%; height: 60%; border: 2px solid #ccc;"></div>
-                </div>
-            </div>
-            <div class="split-right">
-                <div>
-                    <h2 class="title animate-in">OUR PURPOSE</h2>
-                    <p class="subtitle animate-in delay-1" style="color: #9ca3af;">
-                        Sweden built AP7, one of the most trusted pension funds globally.
-                    </p>
-                    <p class="subtitle animate-in delay-2" style="color: #9ca3af; margin-top: 1.5rem;">
-                        CQT brings the proven Swedish investment methodology to international investors through CQT Fund.
-                    </p>
-                    <p class="subtitle animate-in delay-3" style="color: #fff; margin-top: 1.5rem; font-weight: 500;">
-                        Simple, systematic, high-performance investing in global megatrends.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 3: Performance -->
-        <section class="slide" data-slide="3">
-            <div class="center-content">
-                <h2 class="title animate-in">THE PERFORMANCE</h2>
-                <p class="subtitle animate-in delay-1">Not theory – proven in practice</p>
-
-                <div class="perf-layout" style="display: flex; gap: 4rem; margin-top: 3rem; align-items: flex-end;">
-                    <!-- Chart -->
-                    <div class="chart-container animate-in delay-2">
-                        <!-- Grid lines -->
-                        <div class="chart-grid-line" style="bottom: 25%;"></div>
-                        <div class="chart-grid-line" style="bottom: 50%;"></div>
-                        <div class="chart-grid-line" style="bottom: 75%;"></div>
-                        
-                        <!-- Y-axis labels -->
-                        <span class="chart-y-label" style="bottom: 0;">0%</span>
-                        <span class="chart-y-label" style="bottom: 25%;">150%</span>
-                        <span class="chart-y-label" style="bottom: 50%;">300%</span>
-                        <span class="chart-y-label" style="bottom: 75%;">450%</span>
-                        <span class="chart-y-label" style="bottom: 96%;">600%</span>
-
-                        <!-- SVG Chart -->
-                        <svg class="chart-svg" viewBox="0 0 400 280" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#2dd4bf;stop-opacity:0.3" />
-                                    <stop offset="100%" style="stop-color:#2dd4bf;stop-opacity:0" />
-                                </linearGradient>
-                            </defs>
-                            
-                            <!-- Area fill - 4 points matching dots exactly -->
-                            <polygon class="chart-area" 
-                                points="0,265 133,230 266,120 400,12 400,280 0,280" 
-                                fill="url(#chartGradient)" />
-                            
-                            <!-- Glow effect -->
-                            <polyline class="chart-line-glow chart-line-animated" 
-                                points="0,265 133,230 266,120 400,12" />
-                            
-                            <!-- Main line - 4 vertices that dots sit on -->
-                            <polyline class="chart-line chart-line-animated" 
-                                points="0,265 133,230 266,120 400,12" />
-                            
-                            <!-- Data points - EXACTLY on polyline vertices -->
-                            <circle class="chart-dot chart-dot-1" cx="0" cy="265" r="7" />
-                            <circle class="chart-dot chart-dot-2" cx="133" cy="230" r="7" />
-                            <circle class="chart-dot chart-dot-3" cx="266" cy="120" r="7" />
-                            <circle class="chart-dot chart-dot-4" cx="400" cy="12" r="7" />
-                        </svg>
-
-                        <!-- X-axis labels -->
-                        <span class="chart-label" style="left: 0%;">2002</span>
-                        <span class="chart-label" style="left: 33%;">2010</span>
-                        <span class="chart-label" style="left: 66%;">2017</span>
-                        <span class="chart-label" style="left: 100%;">2024</span>
-
-                        <!-- Endpoint badge -->
-                        <div class="chart-endpoint">+616.7%</div>
-                    </div>
-
-                    <!-- Stats -->
-                    <div class="stats-row animate-in delay-3" style="flex-direction: column; gap: 2rem;">
-                        <div class="stat">
-                            <p class="stat-label">5Y</p>
-                            <p class="stat-value">100.1%</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat-label">10Y</p>
-                            <p class="stat-value">198.4%</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat-label">From Start</p>
-                            <p class="stat-value" style="color: var(--accent);">616.7%</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 4: Philosophy -->
-        <section class="slide" data-slide="4">
-            <div class="center-content">
-                <h2 class="title animate-in">...a clear investment philosophy</h2>
-
-                <div class="card-grid animate-in delay-1" style="margin-top: 3rem;">
-                    <div class="card" style="text-align: center;">
-                        <div class="card-number" style="margin: 0 auto 1rem;">1</div>
-                        <h3 class="card-title">Risk</h3>
-                        <p class="card-text">High returns require risk-taking. At the same time, we control the risk.</p>
-                    </div>
-                    <div class="card" style="text-align: center;">
-                        <div class="card-number" style="margin: 0 auto 1rem;">2</div>
-                        <h3 class="card-title">Time</h3>
-                        <p class="card-text">Embracing the forces shaping tomorrow.</p>
-                    </div>
-                    <div class="card" style="text-align: center;">
-                        <div class="card-number" style="margin: 0 auto 1rem;">3</div>
-                        <h3 class="card-title">Responsibility</h3>
-                        <p class="card-text">We don't make money off our savers. We make money for them.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 5: Problem -->
-        <section class="slide" data-slide="5">
-            <div class="center-content">
-                <h2 class="title animate-in">THE PROBLEM</h2>
-                <p class="subtitle animate-in delay-1" style="color: var(--accent);">+80% of active funds underperform</p>
-
-                <div class="card-grid animate-in delay-2" style="margin-top: 3rem;">
-                    <div style="text-align: center;">
-                        <div class="badge">Problem 1</div>
-                        <p style="margin-top: 1rem; color: var(--text-muted);">Complexity vs. Simplicity</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="badge">Problem 2</div>
-                        <p style="margin-top: 1rem; color: var(--text-muted);">Outdated fee structures</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="badge">Problem 3</div>
-                        <p style="margin-top: 1rem; color: var(--text-muted);">Underperformance despite high fees</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 6: Solution -->
-        <section class="slide slide-split" data-slide="6">
-            <div class="split-left" style="background: var(--bg-dark);">
-                <div style="width: 200px; height: 200px; border: 2px solid #444; transform: rotate(45deg);"></div>
-            </div>
-            <div class="split-right" style="background: var(--bg); color: var(--text);">
-                <div>
-                    <h2 class="title animate-in">THE SOLUTION</h2>
-                    <p class="subtitle animate-in delay-1" style="text-decoration: underline; margin-bottom: 2rem;">A proven, systematic model - now accessible globally</p>
-
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem;" class="animate-in delay-2">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div class="card-number">1</div>
-                            <div>
-                                <p style="font-weight: 600;">Swedish inspired model +</p>
-                                <p style="color: var(--text-muted);">Absolute return focus</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div class="card-number">2</div>
-                            <div>
-                                <p style="font-weight: 600;">Global indices +</p>
-                                <p style="color: var(--text-muted);">Selective leverage</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div class="card-number">3</div>
-                            <div>
-                                <p style="font-weight: 600;">Risk-managed +</p>
-                                <p style="color: var(--text-muted);">Systematic</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 7: Value Proposition -->
-        <section class="slide" data-slide="7">
-            <div class="center-content text-center">
-                <h2 class="title animate-in">VALUE PROPOSITION</h2>
-
-                <div class="value-prop-layout animate-in delay-1" style="display: flex; align-items: center; justify-content: center; gap: 4rem; margin-top: 4rem;">
-                    <div class="badge">OUTPERFORM</div>
-                    <div style="width: 150px; height: 150px; border: 2px solid var(--border); transform: rotate(45deg);"></div>
-                    <div class="badge">SIMPLICITY</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 8: Market -->
-        <section class="slide" data-slide="8">
-            <div class="center-content">
-                <h2 class="title animate-in" style="text-align: right;">THE MARKET</h2>
-
-                <div class="card-grid card-grid-2 animate-in delay-1" style="margin-top: 2rem;">
-                    <div>
-                        <div class="badge" style="margin-bottom: 1rem;">Advantage 1</div>
-                        <p class="card-text">Investors demand future-proof portfolios</p>
-                    </div>
-                    <div>
-                        <div class="badge" style="margin-bottom: 1rem;">Advantage 2</div>
-                        <p class="card-text">Structural megatrends reshaping the world</p>
-                    </div>
-                    <div>
-                        <div class="badge" style="margin-bottom: 1rem;">Advantage 3</div>
-                        <p class="card-text">Structural, not cyclical opportunities</p>
-                    </div>
-                    <div>
-                        <div class="badge" style="margin-bottom: 1rem;">Advantage 4</div>
-                        <p class="card-text">Thematic & index investing is a $3 trillion+ global market</p>
-                    </div>
-                </div>
-
-                <div class="animate-in delay-2" style="margin-top: 3rem; padding: 2rem; border-left: 3px solid var(--bg-dark);">
-                    <p style="color: var(--text-muted); line-height: 1.8;">
-                        Pension funds, family offices, and UHNWIs are reallocating into megatrend-driven models.<br>
-                        Investors demanding Swedish-grade strategies in MENA & beyond.<br>
-                        Demand from global investors for stable, systematic, AP7-style strategies.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 9: Objective -->
-        <section class="slide slide-split" data-slide="9">
-            <div class="split-left" style="background: var(--bg-dark);">
-                <div style="width: 150px; height: 150px; border: 2px solid #444;"></div>
-            </div>
-            <div class="split-right" style="background: var(--bg); color: var(--text);">
-                <div>
-                    <h2 class="title animate-in">OBJECTIVE</h2>
-                    <p class="subtitle animate-in delay-1" style="font-size: 1.5rem; line-height: 1.6; color: var(--text);">
-                        By proven models, simplicity and market-driven models build a <strong>$1B fund structure</strong> that outperforms everything else on the market.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 10: Key Metrics -->
-        <section class="slide" data-slide="10">
-            <div class="center-content">
-                <div class="metrics-header" style="display: flex;">
-                    <div style="flex: 1; padding-right: 4rem;">
-                        <h2 class="title animate-in" style="font-size: 2.5rem;">Model-Driven Allocation</h2>
-                    </div>
-                    <div class="metrics-header-right" style="flex: 1; padding-left: 4rem; border-left: 1px solid var(--border);">
-                        <h2 class="title animate-in delay-1" style="font-size: 2.5rem;">Meets Tactical Execution</h2>
-                    </div>
-                </div>
-
-                <div class="metrics-row animate-in delay-2">
-                    <div class="metric">
-                        <p class="metric-label">Target</p>
-                        <p class="metric-value">+20% APY</p>
-                    </div>
-                    <div class="metric">
-                        <p class="metric-label">Risk</p>
-                        <p class="metric-value">ESMA Risk 5</p>
-                    </div>
-                    <div class="metric">
-                        <p class="metric-label">Fees</p>
-                        <p class="metric-value">Performance only</p>
-                    </div>
-                    <div class="metric">
-                        <p class="metric-label">Minimum</p>
-                        <p class="metric-value">$250,000 USD</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 11: Structure -->
-        <section class="slide" data-slide="11">
-            <div class="center-content">
-                <h2 class="title animate-in structure-title" style="writing-mode: vertical-rl; position: absolute; left: 2rem; top: 50%; transform: translateY(-50%);">THE STRUCTURE</h2>
-
-                <div style="max-width: 800px; margin: 0 auto;" class="animate-in delay-1 structure-content">
-                    <div class="structure-gp-lp" style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
-                        <div>
-                            <p class="label">General Partners (GP's)</p>
-                            <div class="badge" style="margin-top: 1rem;">CQT Investment Group</div>
-                        </div>
-                        <div>
-                            <p class="label">Limited Partners (LP's)</p>
-                            <div class="structure-row" style="margin-top: 1rem;">
-                                <div class="structure-box">Individual</div>
-                                <div class="structure-box">Family Office</div>
-                                <div class="structure-box">Institutional</div>
-                            </div>
-                            <div class="structure-row">
-                                <div class="structure-box">Fund</div>
-                                <div class="structure-box">Corporation</div>
-                                <div class="structure-box">Private Equity</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="structure-solid" style="text-align: center; margin: 2rem 0;">
-                        CQT [ THE FUND ]
-                    </div>
-
-                    <div class="structure-row">
-                        <div class="structure-box">Index</div>
-                        <div class="structure-box">Leverage</div>
-                        <div class="structure-box">Systematic</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 12: Timeline -->
-        <section class="slide" data-slide="12">
-            <div class="center-content">
-                <h2 class="title animate-in">THE TIMELINE</h2>
-
-                <div class="timeline-layout" style="display: flex; gap: 4rem; margin-top: 2rem;">
-                    <div class="animate-in delay-1" style="flex: 1;">
-                        <p style="margin-bottom: 1rem;"><strong>Now:</strong> Raising USD 100M.</p>
-                        <p style="margin-bottom: 1rem; color: var(--text-muted);"><strong>Year 1–2:</strong> Deploy AUM, build track record under DIFC structure.</p>
-                        <p style="color: var(--text-muted);"><strong>Year 3–5:</strong> Marketing and expansion to institutional & family office investors.</p>
-                    </div>
-                    <div class="animate-in delay-2" style="flex: 1;">
-                        <div style="display: flex; flex-direction: column; gap: 2rem;">
-                            <div style="display: flex; align-items: center; gap: 1rem;">
-                                <div class="card-number">1</div>
-                                <div>
-                                    <p class="label" style="margin: 0;">Step 1</p>
-                                    <p style="font-weight: 600;">Finalize early investor pool</p>
-                                </div>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 1rem;">
-                                <div class="card-number">2</div>
-                                <div>
-                                    <p class="label" style="margin: 0;">Step 2</p>
-                                    <p style="font-weight: 600;">Launch and distribution</p>
-                                </div>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 1rem;">
-                                <div class="card-number">3</div>
-                                <div>
-                                    <p class="label" style="margin: 0;">Step 3</p>
-                                    <p style="font-weight: 600;">Traction and scale</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 13: The Offer -->
-        <section class="slide" data-slide="13">
-            <div class="center-content">
-                <h2 class="title animate-in">THE OFFER</h2>
-                <p class="subtitle animate-in delay-1" style="font-weight: 600; color: var(--text);">Exclusive Early Investor Advantage</p>
-
-                <div class="offer-layout" style="display: flex; gap: 4rem; margin-top: 3rem;">
-                    <div class="animate-in delay-2" style="flex: 1;">
-                        <p style="margin-bottom: 1rem;">Raising <strong>$100M USD</strong></p>
-                        <p style="margin-bottom: 1rem; color: var(--text-muted);">All funds allocated as AUM.</p>
-                        <p style="margin-bottom: 1rem; color: var(--text-muted);">Early investors receive 25% equity stake in the fund structure.</p>
-                        <p>Sign PACTs of 10M USD, min >250k USD</p>
-                    </div>
-                    <div class="animate-in delay-3" style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
-                        <div class="badge" style="padding: 1.5rem 2rem;">PACTs of 10M USD</div>
-                        <div class="badge" style="padding: 1.5rem 2rem;">25% equity stake</div>
-                        <div class="badge" style="padding: 1.5rem 2rem;">Swedish pension-fund-inspired model</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 14: Team -->
-        <section class="slide" data-slide="14">
-            <div class="center-content">
-                <h2 class="title animate-in text-center">THE TEAM</h2>
-
-                <div class="team-grid animate-in delay-1">
-                    <div class="team-member">
-                        <div class="team-photo">CE</div>
-                        <p class="team-name">Charlie Ejerholm</p>
-                        <p class="team-role">Assets Manager</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-photo">MA</div>
-                        <p class="team-name">Mohamad Alubeid</p>
-                        <p class="team-role">Investment Manager</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-photo">MH</div>
-                        <p class="team-name">Maxime Holm</p>
-                        <p class="team-role">Investor Relations</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-photo">DC</div>
-                        <p class="team-name">Danish Chotani</p>
-                        <p class="team-role">Advisory Board</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 15: Roadmap -->
-        <section class="slide" data-slide="15">
-            <div class="center-content">
-                <h2 class="title animate-in text-center">FUTURE ROADMAP</h2>
-
-                <div class="timeline animate-in delay-1">
-                    <div class="timeline-item">
-                        <div class="timeline-dot">1</div>
-                        <p class="timeline-label">PACTs</p>
-                        <p class="timeline-date">Q1 2026</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot">2</div>
-                        <p class="timeline-label">SUB-FUND</p>
-                        <p class="timeline-date">Q2 2026</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot">3</div>
-                        <p class="timeline-label">100M</p>
-                        <p class="timeline-date">Q4 2026</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot">4</div>
-                        <p class="timeline-label">SCALE</p>
-                        <p class="timeline-date">Q2 2027</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 16: CTA -->
-        <section class="slide slide-split" data-slide="16">
-            <div class="split-left">
-                <div>
-                    <h2 class="title animate-in" style="font-size: 5rem;">QUESTIONS?</h2>
-                    <p class="animate-in delay-1" style="text-decoration: underline; margin-top: 2rem; font-size: 1.25rem;">
-                        Schedule a confidential investor briefing with our partners
-                    </p>
-
-                    <div class="cta-row animate-in delay-2">
-                        <button class="cta-button cta-primary" onclick="openModal('meeting')">Book a Meeting</button>
-                        <button class="cta-button cta-secondary" onclick="openModal('pact')">Sign PACT Agreement</button>
-                    </div>
-
-                    <p class="slide-footer animate-in delay-3">www.cqtinvest.com</p>
-                </div>
-            </div>
-            <div class="split-right">
-                <div style="width: 200px; height: 200px; border: 2px solid #444; transform: rotate(15deg);"></div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Modal: Book a Meeting -->
-    <div class="modal-overlay" id="modal-meeting">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal('meeting')">
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-            <h3 class="modal-title">Book a Meeting</h3>
-
-            <div style="text-align: center; margin-bottom: 1.5rem;">
-                <img src="assets/cqt/Logo_CQT_black.png" alt="CQT Fund" style="height: 60px;">
-            </div>
-
-            <p class="modal-subtitle">Schedule a confidential investor briefing with our partners</p>
-
-            <div class="modal-contact">
-                <div class="modal-contact-item">
-                    <div class="modal-contact-icon">📧</div>
-                    <div class="modal-contact-text">
-                        <p class="modal-contact-label">Email</p>
-                        <p class="modal-contact-value">
-                            <a href="mailto:info@cqtinvest.com">info@cqtinvest.com</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="modal-contact-item">
-                    <div class="modal-contact-icon">📞</div>
-                    <div class="modal-contact-text">
-                        <p class="modal-contact-label">Phone</p>
-                        <p class="modal-contact-value">
-                            <a href="tel:+971000000000">[Awaiting from Molle]</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <a href="https://nordsym.github.io/NordSym-Scheduler/" target="_blank" class="modal-cta">
-                Schedule a Meeting →
-            </a>
-
-            <p class="modal-note">
-                🔄 Integration Placeholder: Using NordSym Scheduler as showcase. Awaiting Molle's decision: Calendly link or custom booking solution.
-            </p>
+    <!-- 1. HERO -->
+    <section class="section hero" id="hero">
+        <div class="container">
+            <img src="assets/Logo_CQT_white.png" alt="CQT Fund Logo" style="max-width: 400px; width: 100%; margin-bottom: 2rem;">
+            <p class="hero-tagline">Swedish pension-fund methodology for global investors</p>
+            <p class="hero-subtitle">CQT Investment Group</p>
         </div>
-    </div>
+    </section>
 
-    <!-- Modal: Sign PACT Agreement -->
-    <div class="modal-overlay" id="modal-pact">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal('pact')">
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-            <h3 class="modal-title">Sign PACT Agreement</h3>
+    <!-- 2. PERFORMANCE -->
+    <section class="section" id="performance">
+        <div class="container">
+            <p class="label">Track Record</p>
+            <h2 class="title">The Performance</h2>
+            <p class="subtitle">Not theory – proven in practice</p>
 
-            <div style="text-align: center; margin-bottom: 1.5rem;">
-                <img src="assets/cqt/Logo_CQT_black.png" alt="CQT Fund" style="height: 60px;">
-            </div>
+            <div class="performance-grid">
+                <div class="chart-container">
+                    <div class="chart-grid-line" style="bottom: 25%;"></div>
+                    <div class="chart-grid-line" style="bottom: 50%;"></div>
+                    <div class="chart-grid-line" style="bottom: 75%;"></div>
 
-            <p class="modal-subtitle">
-                Exclusive early investor opportunity. Sign a PACT agreement to secure your position in CQT Fund.
-            </p>
+                    <span class="chart-y-label" style="bottom: 0;">0%</span>
+                    <span class="chart-y-label" style="bottom: 25%;">150%</span>
+                    <span class="chart-y-label" style="bottom: 50%;">300%</span>
+                    <span class="chart-y-label" style="bottom: 75%;">450%</span>
+                    <span class="chart-y-label" style="bottom: 96%;">600%</span>
 
-            <div class="modal-contact">
-                <div class="modal-contact-item">
-                    <div class="modal-contact-icon">⚖️</div>
-                    <div class="modal-contact-text">
-                        <p class="modal-contact-label">Legal Contact</p>
-                        <p class="modal-contact-value">
-                            <a href="mailto:legal@cqtinvest.com">[Awaiting from Molle]</a>
-                        </p>
-                    </div>
+                    <svg class="chart-svg" viewBox="0 0 400 280" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2dd4bf;stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:#2dd4bf;stop-opacity:0" />
+                            </linearGradient>
+                        </defs>
+                        <polygon points="0,265 133,230 266,120 400,12 400,280 0,280" fill="url(#chartGradient)" />
+                        <polyline class="chart-line" points="0,265 133,230 266,120 400,12" />
+                        <circle class="chart-dot" cx="0" cy="265" r="6" />
+                        <circle class="chart-dot" cx="133" cy="230" r="6" />
+                        <circle class="chart-dot" cx="266" cy="120" r="6" />
+                        <circle class="chart-dot" cx="400" cy="12" r="6" />
+                    </svg>
+
+                    <span class="chart-label" style="left: 0%;">2002</span>
+                    <span class="chart-label" style="left: 33%;">2010</span>
+                    <span class="chart-label" style="left: 66%;">2017</span>
+                    <span class="chart-label" style="left: 100%;">2024</span>
+                    <div class="chart-endpoint">+616.7%</div>
                 </div>
 
-                <div class="modal-contact-item">
-                    <div class="modal-contact-icon">📄</div>
-                    <div class="modal-contact-text">
-                        <p class="modal-contact-label">Minimum Investment</p>
-                        <p class="modal-contact-value">$250,000 USD</p>
+                <div class="stats-column">
+                    <div class="stat">
+                        <p class="stat-label">5Y</p>
+                        <p class="stat-value">100.1%</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-label">10Y</p>
+                        <p class="stat-value">198.4%</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-label">From Start</p>
+                        <p class="stat-value highlight">616.7%</p>
                     </div>
                 </div>
             </div>
-
-            <button class="modal-cta" disabled style="opacity: 0.6; cursor: not-allowed;">
-                Download PACT Agreement (Coming Soon)
-            </button>
-
-            <p class="modal-note">
-                ⚠️ Integration Pending: Awaiting Molle's decision on PACT distribution method:<br>
-                • DocuSign integration<br>
-                • Direct PDF download<br>
-                • Investor information form → email workflow
-            </p>
         </div>
-    </div>
+    </section>
 
-    <!-- Navigation -->
-    <div class="nav-controls">
-        <button class="nav-btn" id="prev-btn" disabled>
-            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-        </button>
-        <span class="nav-counter"><span id="current-slide">1</span> / <span id="total-slides">16</span></span>
-        <button class="nav-btn" id="next-btn">
-            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-        </button>
-    </div>
+    <!-- 3. PHILOSOPHY -->
+    <section class="section section-dark" id="philosophy">
+        <div class="container">
+            <p class="label">Investment Approach</p>
+            <h2 class="title">A Clear Investment Philosophy</h2>
 
-    <script>
-        // Modal functions
-        function openModal(type) {
-            document.getElementById('modal-' + type).classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h3 class="card-title">Risk</h3>
+                    <p class="card-text">High returns require risk-taking. At the same time, we control the risk.</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h3 class="card-title">Time</h3>
+                    <p class="card-text">Embracing the forces shaping tomorrow.</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h3 class="card-title">Responsibility</h3>
+                    <p class="card-text">We don't make money off our savers. We make money for them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function closeModal(type) {
-            document.getElementById('modal-' + type).classList.remove('active');
-            document.body.style.overflow = '';
-        }
+    <!-- 4. KEY METRICS -->
+    <section class="section section-dark" id="metrics">
+        <div class="container">
+            <p class="label">Fund Details</p>
+            <h2 class="title" style="text-align: center;">Model-Driven Allocation Meets Tactical Execution</h2>
 
-        // Close modal on overlay click
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
+            <div class="metrics-row">
+                <div class="metric">
+                    <p class="metric-value">+20% APY</p>
+                    <p class="metric-label">Target</p>
+                </div>
+                <div class="metric">
+                    <p class="metric-value">ESMA 5</p>
+                    <p class="metric-label">Risk</p>
+                </div>
+                <div class="metric">
+                    <p class="metric-value">Perf Only</p>
+                    <p class="metric-label">Fees</p>
+                </div>
+                <div class="metric">
+                    <p class="metric-value">$250K</p>
+                    <p class="metric-label">Minimum</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Close modal on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-                    modal.classList.remove('active');
-                });
-                document.body.style.overflow = '';
-            }
-        });
+    <!-- 5. THE OFFER -->
+    <section class="section section-dark" id="offer">
+        <div class="container">
+            <p class="label">Investment Opportunity</p>
+            <h2 class="title">The Offer</h2>
+            <p class="subtitle">Exclusive Early Investor Advantage</p>
 
-        // Slide navigation
-        document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
-            let currentSlide = 1;
+            <div class="offer-grid">
+                <div class="offer-content">
+                    <p>Raising <strong>$100M USD</strong></p>
+                    <p>All funds allocated as AUM.</p>
+                    <p>Early investors receive <strong>25% equity stake</strong> in the fund structure.</p>
+                    <p>Sign PACTs of 10M USD, min >250k USD</p>
+                </div>
+                <div class="offer-badges">
+                    <div class="badge">PACTs of 10M USD</div>
+                    <div class="badge">25% equity stake</div>
+                    <div class="badge">Swedish pension-fund model</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const currentSlideEl = document.getElementById('current-slide');
-            const totalSlidesEl = document.getElementById('total-slides');
+    <!-- 6. CTA -->
+    <section class="section section-dark" id="contact">
+        <div class="container cta-content">
+            <h2 class="title" style="font-size: 5rem;">Questions?</h2>
+            <p class="subtitle" style="margin: 0 auto 3rem; color: #9ca3af;">Schedule a confidential investor briefing with our partners</p>
 
-            totalSlidesEl.textContent = totalSlides;
+            <div class="cta-row">
+                <a href="mailto:info@cqtinvest.com" class="btn btn-primary">Contact Us</a>
+                <a href="#performance" class="btn btn-secondary">View Performance</a>
+            </div>
+        </div>
+    </section>
 
-            function updateSlide() {
-                slides.forEach((slide, index) => {
-                    slide.classList.remove('active');
-                    if (index + 1 === currentSlide) {
-                        slide.classList.add('active');
-                        // Reset animations
-                        slide.querySelectorAll('.animate-in, .animate-scale, .chart-line-animated, .chart-area, .chart-dot, .chart-endpoint').forEach(el => {
-                            el.style.animation = 'none';
-                            el.offsetHeight;
-                            el.style.animation = null;
-                        });
-                    }
-                });
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <img src="assets/Logo_CQT_white.png" alt="CQT Fund" class="footer-logo">
+                <p class="footer-text">
+                    CQT brings the proven Swedish investment methodology to international investors. Simple, systematic, high-performance investing in global megatrends.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#performance">Performance</a></li>
+                    <li><a href="#philosophy">Philosophy</a></li>
+                    <li><a href="#metrics">Key Metrics</a></li>
+                    <li><a href="#offer">The Offer</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@cqtinvest.com">info@cqtinvest.com</a></li>
+                    <li><a href="tel:+971000000000">+971 00 000 0000</a></li>
+                    <li>Dubai, UAE</li>
+                    <li><a href="https://www.cqtinvest.com" target="_blank">www.cqtinvest.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CQT Investment Group. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Disclaimer</a>
+            </div>
+        </div>
+    </footer>
 
-                currentSlideEl.textContent = currentSlide;
-                prevBtn.disabled = currentSlide === 1;
-                nextBtn.disabled = currentSlide === totalSlides;
-            }
-
-            function goToSlide(n) {
-                currentSlide = Math.max(1, Math.min(n, totalSlides));
-                updateSlide();
-            }
-
-            function nextSlide() {
-                if (currentSlide < totalSlides) {
-                    currentSlide++;
-                    updateSlide();
-                }
-            }
-
-            function prevSlide() {
-                if (currentSlide > 1) {
-                    currentSlide--;
-                    updateSlide();
-                }
-            }
-
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
-
-            document.addEventListener('keydown', (e) => {
-                // Don't navigate slides if modal is open
-                if (document.querySelector('.modal-overlay.active')) return;
-                
-                if (e.key === 'ArrowRight' || e.key === ' ') {
-                    e.preventDefault();
-                    nextSlide();
-                } else if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    prevSlide();
-                } else if (e.key === 'Home') {
-                    e.preventDefault();
-                    goToSlide(1);
-                } else if (e.key === 'End') {
-                    e.preventDefault();
-                    goToSlide(totalSlides);
-                } else if (e.key >= '1' && e.key <= '9') {
-                    e.preventDefault();
-                    goToSlide(parseInt(e.key));
-                }
-            });
-
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            document.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-
-            document.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) nextSlide();
-                    else prevSlide();
-                }
-            });
-
-            updateSlide();
-        });
-    </script>
 </body>
 </html>
