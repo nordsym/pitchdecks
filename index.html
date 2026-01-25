@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 <head>
-    <meta http-equiv="refresh" content="0; url=energy-loop-pitch.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NordSym Pitchdecks</title>
-
+    
     <!-- Google Analytics GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRLNF7DHVJ"></script>
     <script>
@@ -15,8 +16,202 @@
       page_location: window.location.href
     });
     </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050608;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #00D4FF 0%, #9370DB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .decks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .deck-card {
+            background: linear-gradient(145deg, #0a0c10 0%, #151820 100%);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deck-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(135deg, #00D4FF, #9370DB, #FF8C00);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .deck-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .deck-card:hover::before {
+            opacity: 1;
+        }
+
+        .deck-card h2 {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .deck-card.energy h2 {
+            color: #00D4FF;
+        }
+
+        .deck-card.guldkant h2 {
+            color: #FF8C00;
+        }
+
+        .deck-card.cqt h2 {
+            color: #9370DB;
+        }
+
+        .deck-card p {
+            color: #aaa;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .deck-card .arrow {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .deck-card:hover .arrow {
+            opacity: 1;
+            transform: translateX(8px);
+        }
+
+        footer {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #00D4FF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .decks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="energy-loop-pitch.html">Energy Loop Pitch</a>...</p>
+    <div class="container">
+        <header>
+            <img src="https://raw.githubusercontent.com/GusHem/Logga-utan-text/refs/heads/main/Final%20logo%20no%20text.svg" alt="NordSym Logo" class="logo">
+            <h1>NordSym Pitchdecks</h1>
+            <p class="subtitle">Customer pitch decks & presentations</p>
+        </header>
+
+        <div class="decks-grid">
+            <a href="energy-loop-pitch.html" class="deck-card energy">
+                <h2>Energy Loop</h2>
+                <p>Intelligent energioptimering för fastigheter med AI-driven analys och automatisering.</p>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="guldkant-pitch.html" class="deck-card guldkant">
+                <h2>Guldkant</h2>
+                <p>Premium fastighetsförmedling med digital transformation och moderna verktyg.</p>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="cqt-onepager.html" class="deck-card cqt">
+                <h2>CQT Onepager</h2>
+                <p>Kompakt presentation av CQT-projektet och dess möjligheter.</p>
+                <div class="arrow">→</div>
+            </a>
+        </div>
+
+        <footer>
+            <p>© 2026 <a href="https://nordsym.com" target="_blank">NordSym AB</a> · <a href="mailto:gustav@nordsym.com">gustav@nordsym.com</a></p>
+        </footer>
+    </div>
 </body>
 </html>
