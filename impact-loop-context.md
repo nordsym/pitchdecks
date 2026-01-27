@@ -1,4 +1,4 @@
-# Energy Loop & Impact Loop - Förslag från NordSym
+# Impact Loop Arkitektur - Förslag från NordSym
 
 **Från:** Gustav Hemmingsson, NordSym AB
 **Till:** Camilla Bergman
@@ -122,4 +122,4 @@ gustav@nordsym.com
 https://nordsym.com
 
 **Pitch deck:**
-https://nordsym.github.io/pitchdecks/energy-loop-pitch.html
+https://nordsym.github.io/pitchdecks/impact-loop-arkitektur.html
