@@ -13,7 +13,7 @@ En sammanhållen digital plattform:
 - **3 sajter** (Impact Loop EU, Impact Loop SE, Energy Loop)
 - **1 mobilapp** (iOS + Android - en kodbas, två plattformar)
 - **1 gemensam databas** med realtidssynk
-- **1 Admin + CSM** (statistik, medlemmar, AI-assisterad publicering för journalister)
+- **1 kontrollcenter** (statistik, medlemmar, AI-assisterad publicering för journalister)
 
 ## Dagens problem
 
@@ -111,7 +111,7 @@ En kodbas (React Native) som kompileras till både iOS och Android. Samma funkti
 
 1. Uppföljningsmöte (30 min)
 2. Tillgång till befintlig kod för analys
-3. Detaljerad offert för Fas 1
+3. Detaljerad offert
 4. Projektstart
 
 ---
