@@ -22,24 +22,27 @@ En sammanhållen digital plattform:
 - Tidigare kodprojekt som betalats för men aldrig fungerat
 - Ingen samlad bild över medlemmar och aktivitet
 
-## Faser & Investering
+## Investering
 
-| Fas | Innehåll | Pris (SEK) |
-|-----|----------|------------|
-| 1. Grund | Gemensam databas + Impact Loop EU | 100-150k |
-| 2. Expansion | Impact Loop SE + Energy Loop | 80-120k |
-| 3. Mobilapp | iOS + Android app | 120-180k |
-| **Totalt** | | **300-450k** |
+**Helhetslösning:** 300-450k SEK
+- Tre sajter, en app, kontrollcenter och allt som beskrivs ovan
 
-## Timeline
+**Startavgift:** 25k SEK (ingår i totalen)
+- Sparkar igång projektet, resten delas upp efter överenskommelse
 
-| Fas | Längd | Första leverans |
-|-----|-------|-----------------|
-| 1. Grund | 6-8 veckor | Demo inom 1 vecka |
-| 2. Expansion | 4-6 veckor | Beta inom 2 veckor |
-| 3. Mobilapp | 8-10 veckor | TestFlight inom 2 veckor |
+**Mindre startprojekt?**
+Vi kan börja med en sajt eller specifik del och skala upp därifrån.
+Perfekt om ni vill testa samarbetet eller har begränsad budget just nu.
 
-**Total tid:** 4.5-6 månader (beroende på feedback-cykler)
+## Leverans
+
+Vi bygger tillsammans. Ni ser, testar och påverkar under hela resan.
+
+- **Löpande demos** - Första demo inom en vecka, sedan regelbundna visningar
+- **Er input i realtid** - Feedback blir till förbättringar direkt
+- **Komplett lansering** - Vi lanserar när helheten är redo
+
+Betalning kan delas upp efter behov. Scope och prioritet bestämmer vi tillsammans.
 
 ## Löpande kostnad - 15k SEK/månad
 
