@@ -170,6 +170,34 @@
             text-decoration: underline;
         }
 
+        .copy-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.6rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            color: #00D4FF;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .copy-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: #00D4FF;
+        }
+
+        .copy-btn.copied {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22C55E;
+            color: #22C55E;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -190,11 +218,20 @@
         </header>
 
         <div class="decks-grid">
-            <a href="energy-loop-pitch.html" class="deck-card energy">
-                <h2>Energy Loop</h2>
-                <p>Intelligent energioptimering för fastigheter med AI-driven analys och automatisering.</p>
-                <div class="arrow">→</div>
-            </a>
+            <div class="deck-card energy">
+                <a href="energy-loop-pitch.html" style="text-decoration: none; color: inherit;">
+                    <h2>Energy Loop</h2>
+                    <p>Pitch för Impact Loop & Energy Loop - tre sajter, en app, ett kontrollcenter.</p>
+                    <div class="arrow">→</div>
+                </a>
+                <button class="copy-btn" onclick="copyContext(event)" title="Kopiera AI-context för Camilla">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Kopiera context för AI
+                </button>
+            </div>
 
             <a href="guldkant-pitch.html" class="deck-card guldkant">
                 <h2>Guldkant</h2>
@@ -213,5 +250,141 @@
             <p>© 2026 <a href="https://nordsym.com" target="_blank">NordSym AB</a> · <a href="mailto:gustav@nordsym.com">gustav@nordsym.com</a></p>
         </footer>
     </div>
+
+    <script>
+    const energyLoopContext = `# Energy Loop & Impact Loop - Förslag från NordSym
+
+**Från:** Gustav Hemmingsson, NordSym AB
+**Till:** Camilla Bergman
+**Datum:** 2025-01-20
+
+---
+
+## Förslag
+
+En sammanhållen digital plattform:
+
+- **3 sajter** (Impact Loop EU, Impact Loop SE, Energy Loop)
+- **1 mobilapp** (iOS + Android - en kodbas, två plattformar)
+- **1 gemensam databas** med realtidssynk
+- **1 Admin + CSM** (statistik, medlemmar, AI-assisterad publicering för journalister)
+
+## Dagens problem
+
+- Tre isolerade sajter utan gemensam data
+- Ingen mobilapp (medlemmar förväntar sig en riktig app)
+- Tidigare kodprojekt som betalats för men aldrig fungerat
+- Ingen samlad bild över medlemmar och aktivitet
+
+## Investering
+
+**Helhetslösning:** 300-450k SEK
+- Tre sajter, en app, kontrollcenter och allt som beskrivs ovan
+
+**Startavgift:** 25k SEK (ingår i totalen)
+- Sparkar igång projektet, resten delas upp efter överenskommelse
+
+**Mindre startprojekt?**
+Vi kan börja med en sajt eller specifik del och skala upp därifrån.
+Perfekt om ni vill testa samarbetet eller har begränsad budget just nu.
+
+## Leverans
+
+Vi bygger tillsammans. Ni ser, testar och påverkar under hela resan.
+
+- **Löpande demos** - Första demo inom en vecka, sedan regelbundna visningar
+- **Er input i realtid** - Feedback blir till förbättringar direkt
+- **Komplett lansering** - Vi lanserar när helheten är redo
+
+Betalning kan delas upp efter behov. Scope och prioritet bestämmer vi tillsammans.
+
+## Löpande kostnad - 15k SEK/månad
+
+**Ingår:**
+- Hosting & infrastruktur (databas, sajter, app-backend)
+- App Store-avgifter (Apple + Google)
+- Säkerhetsuppdateringar & bugfixar
+- Mindre justeringar & iterationer
+- Support (email/WhatsApp)
+- Backup & monitoring
+
+**Större projekt** (nya features, redesign) offereras separat.
+
+**Uppsägningstid:** 3 månader (ni äger all kod oavsett)
+
+## Teknik
+
+- **Next.js** - Moderna, snabba sajter
+- **Realtidsdatabas** - Synk mellan alla plattformar
+- **React Native** - En kodbas för iOS och Android
+
+## Approach
+
+- Kärnteam + specialister vid behov
+- AI-first workflow (Claude/Gemini för snabbare leverans)
+- Erfarna konsulter redo att hoppa in (noll onboarding)
+
+Flexibelt = konkurrenskraftig prissättning utan kvalitetskompromiss.
+
+## Varför NordSym
+
+- **AI-First Studio** - AI i hela arbetsflödet för snabbare leverans
+- **Full-stack partner** - Design, kod och drift under ett tak
+- **Kollaborativ arkitektur** - Systemet byggs så ert team kan växa in i det
+- **Återuppliva död kod** - Jag tar över och utvärderar befintliga projekt
+- **Skalbart** - Enkelt att ta in fler specialister vid behov
+- **100% kodägarskap** - Ni äger all kod
+
+## Vanliga funderingar
+
+**"Hur vet jag att det blir klart den här gången?"**
+Korta cykler med löpande demo. Ni ser leverans inom första veckan, inte efter månader.
+
+**"Vad händer om du försvinner?"**
+All kod ägs av er och ligger i ert eget repo. Dokumentation ingår. Ingen vendor lock-in.
+
+**"Är 300-450k rimligt?"**
+Spridningen beror på hur mycket som kan återanvändas från befintliga projekt. Gratis analys innan fast pris.
+
+**"Varför en app istället för två?"**
+En kodbas (React Native) som kompileras till både iOS och Android. Samma funktionalitet, halva underhållet.
+
+## Nästa steg
+
+1. Uppföljningsmöte (30 min)
+2. Tillgång till befintlig kod för analys
+3. Detaljerad offert
+4. Projektstart
+
+---
+
+**Kontakt:**
+Gustav Hemmingsson
+gustav@nordsym.com
+https://nordsym.com
+
+**Pitch deck:**
+https://nordsym.github.io/pitchdecks/energy-loop-pitch.html`;
+
+    async function copyContext(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const btn = event.currentTarget;
+
+        try {
+            await navigator.clipboard.writeText(energyLoopContext);
+            btn.classList.add('copied');
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"></path></svg> Kopierat!';
+
+            setTimeout(() => {
+                btn.classList.remove('copied');
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Kopiera context för AI';
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    }
+    </script>
 </body>
 </html>
